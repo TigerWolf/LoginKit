@@ -1,0 +1,25 @@
+{
+  "name": "LoginKit",
+  "version": "0.1.0",
+  "summary": "A short description of LoginKit.",
+  "description": "",
+  "homepage": "https://github.com/<GITHUB_USERNAME>/LoginKit",
+  "license": "MIT",
+  "authors": {
+    "Kieran Andrews": "kieran.andrews@adelaide.edu.au"
+  },
+  "source": {
+    "git": "https://github.com/<GITHUB_USERNAME>/LoginKit.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "source_files": "Pod/Classes/**/*",
+  "resource_bundles": {
+    "LoginKit": [
+      "Pod/Assets/*.png"
+    ]
+  }
+}
