@@ -3,19 +3,19 @@ import UIKit
 import Alamofire
 import ReachabilitySwift
 
-let LoginService = LoginServices.sharedInstance
+public let LoginService = LoginServices.sharedInstance
 
-class LoginServices {
+public class LoginServices {
     
-    static let sharedInstance = LoginServices()
+    public static let sharedInstance = LoginServices()
     
     var reachability: Reachability? = nil
 
-    var url: String = ""
+    public var url: String = ""
     
     var user: User?
     
-    var destination: UIViewController = UIViewController()
+    public var destination: UIViewController = UIViewController()
 
     let appDir: String! = NSSearchPathForDirectoriesInDomains(.LibraryDirectory, .UserDomainMask, true).first
     
@@ -109,7 +109,7 @@ class LoginServices {
         return request
     }
     
-    func logoff() {
+    public func logoff() {
         LoginService.user?.clearToken() // Removes the token from the keychain
         LoginService.clearUser() // Removes the user from the storage
         

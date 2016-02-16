@@ -2,20 +2,18 @@ import UIKit
 import SVProgressHUD
 import SwiftyJSON
 
-class LoginController: UIViewController {
+public class LoginController: UIViewController {
 
     var center_coords: CGFloat {
         return (self.view.frame.size.width/2) - (235/2)
     }
-
-    var url: String = ""
 
     var username: UITextField = UITextField()
     var password: UITextField = UITextField()
 
     var savePasswordButton: UIButton!
 
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
 
 //        let the_header = header()
@@ -68,7 +66,7 @@ class LoginController: UIViewController {
         self.view.addSubview(login)
     }
 
-    override func viewDidAppear(animated: Bool) {
+    public override func viewDidAppear(animated: Bool) {
         if let user = LoginService.user {
             // Password is saved
             if user.authToken != nil {

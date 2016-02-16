@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
   s.author           = { "Kieran Andrews" => "kieran.andrews@adelaide.edu.au" }
-  s.source           = { :git => "https://github.com/<GITHUB_USERNAME>/LoginKit.git", :tag => s.version.to_s }
+  s.source           = { :git => "https://github.com/TigerWolf/LoginKit.git", :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.platform     = :ios, '8.0'
@@ -33,7 +33,7 @@ Pod::Spec.new do |s|
 
   # s.source_files = 'Pod/Classes/**/*'
   # s.source_files = "LoginKit/*.swift"
-  s.source_files = "LoginKit/**/*.swift"
+  s.source_files = "LoginKit/**/*.{h,swift}"
   s.resource_bundles = {
     'LoginKit' => ['LoginKit/Assets/*.png']
   }
