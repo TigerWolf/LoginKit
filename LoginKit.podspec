@@ -17,6 +17,8 @@ Pod::Spec.new do |s|
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description      = <<-DESC
+  This library makes creating a login screen for your app simple by providing some helper methods and services
+  that you can easily add into your next iOS app.
                        DESC
 
   s.homepage         = "https://github.com/TigerWolf/LoginKit"
@@ -33,7 +35,7 @@ Pod::Spec.new do |s|
   # s.source_files = "LoginKit/*.swift"
   s.source_files = "LoginKit/**/*.swift"
   s.resource_bundles = {
-    'LoginKit' => ['Pod/Assets/*.png']
+    'LoginKit' => ['LoginKit/Assets/*.png']
   }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
