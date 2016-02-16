@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import LoginKit
 
 class ViewController: UIViewController {
 
@@ -19,7 +20,7 @@ class ViewController: UIViewController {
         LoginService.url = "http://private-5855a-loginkit.apiary-mock.com/token"
         LoginService.destination = PrivateController()
         Appearance.backgroundColor = UIColor(red: 0.46, green: 0.70, blue: 0.93, alpha: 1.0)
-        
+
         let login_screen = LoginKit.loginScreenController() as! LoginController
         self.presentViewController(login_screen, animated: animated,completion: nil)
     }
