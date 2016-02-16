@@ -1,7 +1,17 @@
 PODS:
-  - LoginKit (0.1.0)
+  - Alamofire (3.2.0)
+  - KeychainAccess (2.3.3)
+  - LoginKit (0.1.0):
+    - Alamofire (~> 3.0)
+    - KeychainAccess
+    - ReachabilitySwift
+    - SVProgressHUD
+    - SwiftyJSON
   - Nimble (3.0.0)
   - Quick (0.8.0)
+  - ReachabilitySwift (2.3.3)
+  - SVProgressHUD (1.1.3)
+  - SwiftyJSON (2.3.2)
 
 DEPENDENCIES:
   - LoginKit (from `../`)
@@ -13,8 +23,13 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  LoginKit: 91554f4db86938f75d87e667d898897ed6306a34
+  Alamofire: 4da478599fccddff361205c8929333d7fe18dceb
+  KeychainAccess: 9b7e49e48277e329b1b3195e54697ed313d30acf
+  LoginKit: df76c7e9916767c4c32bffc0bccfe3881cfd24f2
   Nimble: 4c353d43735b38b545cbb4cb91504588eb5de926
   Quick: 563d0f6ec5f72e394645adb377708639b7dd38ab
+  ReachabilitySwift: e0f6b6f280effb47731acfaaa2d5ffe223703793
+  SVProgressHUD: 748080e4f36e603f6c02aec292664239df5279c1
+  SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
 COCOAPODS: 0.39.0

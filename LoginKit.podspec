@@ -9,17 +9,17 @@
 Pod::Spec.new do |s|
   s.name             = "LoginKit"
   s.version          = "0.1.0"
-  s.summary          = "A short description of LoginKit."
+  s.summary          = "LoginKit is a framework to help with creating a login screen."
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
 #   * Try to keep it short, snappy and to the point.
 #   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!  
+#   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description      = <<-DESC
                        DESC
 
-  s.homepage         = "https://github.com/<GITHUB_USERNAME>/LoginKit"
+  s.homepage         = "https://github.com/TigerWolf/LoginKit"
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
   s.author           = { "Kieran Andrews" => "kieran.andrews@adelaide.edu.au" }
@@ -29,12 +29,19 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '8.0'
   s.requires_arc = true
 
-  s.source_files = 'Pod/Classes/**/*'
+  # s.source_files = 'Pod/Classes/**/*'
+  # s.source_files = "LoginKit/*.swift"
+  s.source_files = "LoginKit/**/*.swift"
   s.resource_bundles = {
     'LoginKit' => ['Pod/Assets/*.png']
   }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.frameworks = 'UIKit'
+  s.dependency 'Alamofire', '~> 3.0'
+  s.dependency 'SVProgressHUD'
+  s.dependency 'ReachabilitySwift'
+  # s.dependency 'ReachabilitySwift', git: 'https://github.com/ashleymills/Reachability.swift'
+  s.dependency 'KeychainAccess'
+  s.dependency 'SwiftyJSON'
 end

@@ -12,7 +12,16 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    }
+
+    override func viewDidAppear(animated: Bool) {
+        // Setup
+        LoginService.url = "http://private-5855a-loginkit.apiary-mock.com/token"
+        LoginService.destination = PrivateController()
+        Appearance.backgroundColor = UIColor(red: 0.46, green: 0.70, blue: 0.93, alpha: 1.0)
+        
+        let login_screen = LoginKit.loginScreenController() as! LoginController
+        self.presentViewController(login_screen, animated: animated,completion: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,4 +30,3 @@ class ViewController: UIViewController {
     }
 
 }
-
