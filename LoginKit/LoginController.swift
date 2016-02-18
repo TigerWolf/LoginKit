@@ -16,8 +16,8 @@ public class LoginController: UIViewController {
     override public func viewDidLoad() {
         super.viewDidLoad()
 
-//        let the_header = header()
-//        view.addSubview(the_header)
+        let the_header = header()
+        view.addSubview(the_header)
 
         view.backgroundColor = Appearance.backgroundColor
 
@@ -28,7 +28,7 @@ public class LoginController: UIViewController {
         self.view.addSubview(self.password)
 
         self.savePasswordButton = UIButton()
-        self.savePasswordButton.setTitle("Keep me logged in", forState: .Normal)
+        self.savePasswordButton.setTitle("Save logged in", forState: .Normal)
         
         //Get bundle image
         let normalImage = UIImage(named: "LoginKit.bundle/images/icon_unchecked", inBundle: LoginKit.getBundle(), compatibleWithTraitCollection: nil) ?? UIImage()
@@ -79,7 +79,8 @@ public class LoginController: UIViewController {
     func header() -> UIView {
         let view:UIView = UIView()
         view.frame = CGRectMake(0, 0, self.view.frame.size.width, 200)
-        let myImage = UIImage(named: "uofa_logo_vertical")
+//        let myImage = UIImage(named: "uofa_logo_vertical")
+        let myImage = LoginKitConfig.logoImage
         let imageView = UIImageView(image: myImage)
 
         var imageFrame = imageView.frame

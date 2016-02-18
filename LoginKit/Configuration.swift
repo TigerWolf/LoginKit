@@ -28,6 +28,8 @@ public class Configuration {
     private init() {
     }
     
+    public var logoImage: UIImage = UIImage()
+    
     public var authType: AuthType = .JWT
     
 }
