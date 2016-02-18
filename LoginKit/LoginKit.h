@@ -22,3 +22,10 @@
 
 
 #import <UIKit/UIKit.h>
+@import Foundation;
+
+//! Project version number for LoginKit
+FOUNDATION_EXPORT double LoginKitVersionNumber;
+
+//! Project version string for LoginKit
+FOUNDATION_EXPORT const unsigned char LoginKitVersionString[];
