@@ -173,7 +173,7 @@ public class LoginController: UIViewController {
         // "Application tried to present modally an active controller ios"
         // This also ensures we dont have any memory leaks
         if let window = UIApplication.sharedApplication().keyWindow {
-            window.rootViewController = LoginService.destination
+            window.rootViewController = LoginKitConfig.destination
             window.makeKeyAndVisible()
         }
     }

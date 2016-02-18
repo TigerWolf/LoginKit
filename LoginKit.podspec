@@ -35,15 +35,14 @@ Pod::Spec.new do |s|
   # s.source_files = "LoginKit/*.swift"
   s.source_files = "LoginKit/**/*.{h,swift}"
   s.resource_bundles = {
-    'LoginKit' => ['LoginKit/Assets/*.png']
+    'LoginKit' => ['LoginKit/LoginKit.bundle']
   }
+  s.resources = 'LoginKit/LoginKit.bundle'
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   s.frameworks = 'UIKit'
   s.dependency 'Alamofire', '~> 3.0'
   s.dependency 'SVProgressHUD'
-  s.dependency 'ReachabilitySwift'
-  # s.dependency 'ReachabilitySwift', git: 'https://github.com/ashleymills/Reachability.swift'
   s.dependency 'KeychainAccess'
   s.dependency 'SwiftyJSON'
 end

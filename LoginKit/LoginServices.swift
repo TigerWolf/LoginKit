@@ -1,7 +1,6 @@
 
 import UIKit
 import Alamofire
-import ReachabilitySwift
 
 public let LoginService = LoginServices.sharedInstance
 
@@ -9,14 +8,8 @@ public class LoginServices {
     
     public static let sharedInstance = LoginServices()
     
-    var reachability: Reachability? = nil
-
-    public var url: String = ""
-    
     var user: User?
     
-    public var destination: UIViewController = UIViewController()
-
     let appDir: String! = NSSearchPathForDirectoriesInDomains(.LibraryDirectory, .UserDomainMask, true).first
     
     var storePassword = false
@@ -25,16 +18,10 @@ public class LoginServices {
         if let appDir = self.appDir, user = NSKeyedUnarchiver.unarchiveObjectWithFile(appDir + "/user") as? User {
             self.user = user
         }
-        
-        do {
-            self.reachability = try Reachability.reachabilityForInternetConnection()
-        } catch {
-            print("Unable to create Reachability")
-        }
     }
     
     func request(method: Alamofire.Method, _ path: String, parameters: [String : AnyObject]? = nil) -> Alamofire.Request {
-        let location = self.url + path
+        let location = LoginKitConfig.url + path
         
         let manager = Alamofire.Manager.sharedInstance
         
@@ -73,8 +60,6 @@ public class LoginServices {
                 } else if response.response?.statusCode == 500 {
                     // If the request fails, then check if the connection is open
                     message = "Internal server error, please try again later."
-                } else if !LoginService.reachability!.isReachable() {
-                    message = "Your internet conneciton appears to be offline."
                 } else if response.response?.statusCode == nil {
                     // Cancelled requests have no status code
                     if response.result.error!.code == NSURLErrorCancelled {
