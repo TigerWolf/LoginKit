@@ -118,29 +118,53 @@ public class LoginController: UIViewController {
 
         if let username = self.username.text, let password = self.password.text
             where username.characters.count > 0 && password.characters.count > 0 {
-
-                let parameters: Dictionary<String, AnyObject> = [
-                    "username": username,
-                    "password": password
-                ]
-
-                SVProgressHUD.showWithMaskType(SVProgressHUDMaskType.Black)
-                LoginService.request(.POST, "", parameters: parameters).validate()
-                    .responseJSON() { response in
-                        SVProgressHUD.dismiss()
-
-
-                        if response.result.isSuccess {
-                            switch response.response!.statusCode {
-                            case 201:
-                                self.login(response.result.value!)
-
-                            default:
-                                print("perform_login action: unknown status code")
+                
+                if LoginKitConfig.authType == AuthType.JWT {
+                    let parameters: Dictionary<String, AnyObject> = [
+                        "username": username,
+                        "password": password
+                    ]
+                    
+                    SVProgressHUD.showWithMaskType(SVProgressHUDMaskType.Black)
+                    LoginService.request(.POST, "", parameters: parameters).validate()
+                        .responseJSON() { response in
+                            SVProgressHUD.dismiss()
+                            
+                            
+                            if response.result.isSuccess {
+                                switch response.response!.statusCode {
+                                case 201:
+                                    self.save_token(response.result.value!)
+                                    
+                                default:
+                                    print("perform_login action: unknown status code")
+                                }
                             }
-                        }
+                    }
+
+                }
+                
+                if LoginKitConfig.authType == AuthType.Basic {
+                    
+                    SVProgressHUD.showWithMaskType(SVProgressHUDMaskType.Black)
+                    LoginService.request(.GET, "", parameters: nil).validate()
+                        .authenticate(user: username, password: password)
+                        .responseJSON() { response in
+                            SVProgressHUD.dismiss()
+                            
+                            if response.result.isSuccess {
+                                switch response.response!.statusCode {
+                                case 201:
+                                    self.open_destination()
+                                    
+                                default:
+                                    print("perform_login action: unknown status code")
+                                }
+                            }
+                    }
                 }
 
+                
         } else {
             let alert = UIAlertController(title: nil, message: "Please enter your username and password.", preferredStyle: .Alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
@@ -148,10 +172,7 @@ public class LoginController: UIViewController {
         }
     }
 
-    func login(result: AnyObject) {
-        #if !RELEASE
-            NSLog("GET Result: \(result)")
-        #endif
+    func save_token(result: AnyObject) {
 
         var json = JSON(result)
 
@@ -160,9 +181,6 @@ public class LoginController: UIViewController {
         user.authToken = json["token"].stringValue
 
         LoginService.user = user
-
-        NSLog("success!")
-
 
         open_destination()
     }
