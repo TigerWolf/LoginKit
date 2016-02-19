@@ -4,7 +4,7 @@
 
 language: objective-c
 osx_image: xcode7.3
-# cache: cocoapods
+cache: cocoapods
 xcode_project: Example/LoginKit.xcodeproj
 podfile: Example/Podfile
 before_install:
