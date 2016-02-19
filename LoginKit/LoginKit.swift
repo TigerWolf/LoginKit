@@ -26,7 +26,7 @@ import UIKit
 
 public class LoginKit {
 
-    public class func loginScreenController() -> UIViewController{
+    public class func loginScreenController() -> UIViewController {
         return LoginController()
     }
 

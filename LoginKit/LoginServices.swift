@@ -1,4 +1,3 @@
-
 import UIKit
 import Alamofire
 
@@ -20,7 +19,7 @@ public class LoginServices {
         }
     }
 
-    func request(method: Alamofire.Method, _ path: String, parameters: [String : AnyObject]? = nil) -> Alamofire.Request {
+    func request(method: Alamofire.Method, _ path: String, parameters: [String: AnyObject]? = nil) -> Alamofire.Request {
         let location = LoginKitConfig.url + path
 
         let manager = Alamofire.Manager.sharedInstance
@@ -121,7 +120,7 @@ public class LoginServices {
         return nil
     }
 
-    func cancelRequests(){
+    func cancelRequests() {
         let session = Alamofire.Manager.sharedInstance.session
         session.getTasksWithCompletionHandler { dataTasks, uploadTasks, downloadTasks in
             for task in dataTasks {

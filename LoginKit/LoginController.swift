@@ -4,7 +4,7 @@ import SwiftyJSON
 
 public class LoginController: UIViewController {
 
-    var center_coords: CGFloat {
+    var centerCoords: CGFloat {
         return (self.view.frame.size.width/2) - (235/2)
     }
 
@@ -16,13 +16,13 @@ public class LoginController: UIViewController {
     override public func viewDidLoad() {
         super.viewDidLoad()
 
-        let the_header = header()
-        view.addSubview(the_header)
+        let logoHeader = header()
+        view.addSubview(logoHeader)
 
         view.backgroundColor = Appearance.backgroundColor
 
-        self.username = build_field("Username", top: 250)
-        self.password = build_field("Password", top: 320)
+        self.username = buildField("Username", top: 250)
+        self.password = buildField("Password", top: 320)
         self.password.secureTextEntry = true
         self.view.addSubview(self.username)
         self.view.addSubview(self.password)
@@ -30,7 +30,7 @@ public class LoginController: UIViewController {
         self.savePasswordButton = UIButton()
         self.savePasswordButton.setTitle("Save logged in", forState: .Normal)
 
-        //Get bundle image
+        // Get bundle image
         let normalImage = UIImage(named: "LoginKit.bundle/images/icon_unchecked", inBundle: LoginKit.getBundle(), compatibleWithTraitCollection: nil) ?? UIImage()
         let selectedImage = UIImage(named: "LoginKit.bundle/images/icon_checked", inBundle: LoginKit.getBundle(), compatibleWithTraitCollection: nil) ?? UIImage()
 
@@ -47,21 +47,21 @@ public class LoginController: UIViewController {
             self.password.frame.width,
             self.password.frame.height)
         self.savePasswordButton.imageEdgeInsets = UIEdgeInsetsMake(0.0, self.savePasswordButton.frame.width - (normalImage.size.width + 32.0), 0.0, 0.0)
-        self.savePasswordButton.titleEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, 0.0, normalImage.size.width + 30);
+        self.savePasswordButton.titleEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, 0.0, normalImage.size.width + 30)
 
         let login = UIButton(type: UIButtonType.System)
         login.setTitle("Login", forState: UIControlState.Normal)
         login.titleLabel?.font = UIFont.boldSystemFontOfSize(17)
-        login.setTitleColor(UIColor.whiteColor(), forState:UIControlState.Normal)
+        login.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         login.clipsToBounds = true
         login.layer.cornerRadius = 5
         login.sizeToFit()
         login.layer.borderColor = Appearance.whiteColor.CGColor
         login.layer.borderWidth = 1.0
         login.backgroundColor = Appearance.buttonColor
-        login.frame = CGRectMake(center_coords, self.savePasswordButton.frame.maxY + 3, 235, 50)
+        login.frame = CGRectMake(centerCoords, self.savePasswordButton.frame.maxY + 3, 235, 50)
         login.addTarget(self,
-            action: "perform_login:",
+            action: "performLogin:",
             forControlEvents: UIControlEvents.TouchUpInside)
         login.autoresizingMask = [.FlexibleLeftMargin, .FlexibleRightMargin]
         self.view.addSubview(login)
@@ -71,13 +71,13 @@ public class LoginController: UIViewController {
         if let user = LoginService.user {
             // Password is saved
             if user.authToken != nil {
-                open_destination()
+                openDestination()
             }
         }
     }
 
     func header() -> UIView {
-        let view:UIView = UIView()
+        let view: UIView = UIView()
         view.frame = CGRectMake(0, 0, self.view.frame.size.width, 200)
         let myImage = LoginKitConfig.logoImage
         let imageView = UIImageView(image: myImage)
@@ -94,16 +94,16 @@ public class LoginController: UIViewController {
         return view
     }
 
-    func build_field(name: String, top: CGFloat) -> UITextField {
+    func buildField(name: String, top: CGFloat) -> UITextField {
         let field = UITextField()
         field.sizeToFit()
         let placeholderText = name
-        let attrs = [NSForegroundColorAttributeName : UIColor.grayColor()]
-        let placeholderString = NSMutableAttributedString(string: placeholderText, attributes:attrs)
+        let attrs = [NSForegroundColorAttributeName: UIColor.grayColor()]
+        let placeholderString = NSMutableAttributedString(string: placeholderText, attributes: attrs)
         field.attributedPlaceholder = placeholderString
         let cord: CGFloat = 235
         let width: CGFloat = 50
-        field.frame = CGRectMake(center_coords, top, cord, width)
+        field.frame = CGRectMake(centerCoords, top, cord, width)
         field.borderStyle = UITextBorderStyle.RoundedRect
 
         // Enhancements
@@ -114,7 +114,7 @@ public class LoginController: UIViewController {
         return field
     }
 
-    func perform_login(Sender: UIButton!) {
+    func performLogin(sender: UIButton!) {
 
         if let username = self.username.text, let password = self.password.text
             where username.characters.count > 0 && password.characters.count > 0 {
@@ -134,10 +134,10 @@ public class LoginController: UIViewController {
                             if response.result.isSuccess {
                                 switch response.response!.statusCode {
                                 case 201:
-                                    self.save_token(response.result.value!)
+                                    self.saveToken(response.result.value!)
 
                                 default:
-                                    print("perform_login action: unknown status code")
+                                    print("performLogin action: unknown status code")
                                 }
                             }
                     }
@@ -155,10 +155,10 @@ public class LoginController: UIViewController {
                             if response.result.isSuccess {
                                 switch response.response!.statusCode {
                                 case 201:
-                                    self.open_destination()
+                                    self.openDestination()
 
                                 default:
-                                    print("perform_login action: unknown status code")
+                                    print("performLogin action: unknown status code")
                                 }
                             }
                     }
@@ -172,7 +172,7 @@ public class LoginController: UIViewController {
         }
     }
 
-    func save_token(result: AnyObject) {
+    func saveToken(result: AnyObject) {
 
         var json = JSON(result)
 
@@ -182,10 +182,10 @@ public class LoginController: UIViewController {
 
         LoginService.user = user
 
-        open_destination()
+        openDestination()
     }
 
-    func open_destination(){
+    func openDestination() {
         //        self.presentViewController(LoginService.destination, animated: true, completion: nil)
 
         // This could probably be done better - issue with being a framework and not having access to AppDelegate
