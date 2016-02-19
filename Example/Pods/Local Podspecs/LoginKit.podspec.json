@@ -17,11 +17,6 @@
   },
   "requires_arc": true,
   "source_files": "LoginKit/**/*.{h,swift}",
-  "resource_bundles": {
-    "LoginKit": [
-      "LoginKit/LoginKit.bundle"
-    ]
-  },
   "resources": "LoginKit/LoginKit.bundle",
   "frameworks": "UIKit",
   "dependencies": {
