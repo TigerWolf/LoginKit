@@ -9,9 +9,9 @@ class LoginKitSpec: QuickSpec {
     override func spec() {
         
         describe("testing travis ci"){
-            it("failure") {
-                expect(2) == 1
-            }
+//            it("failure") {
+//                expect(2) == 1
+//            }
             it("success") {
                 expect(1) == 1
             }
