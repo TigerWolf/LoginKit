@@ -34,9 +34,9 @@ Pod::Spec.new do |s|
   # s.source_files = 'Pod/Classes/**/*'
   # s.source_files = "LoginKit/*.swift"
   s.source_files = "LoginKit/**/*.{h,swift}"
-  s.resource_bundles = {
-    'LoginKit' => ['LoginKit/LoginKit.bundle']
-  }
+  # s.resource_bundles = {
+  #   'LoginKit' => ['LoginKit/LoginKit.bundle']
+  # }
   s.resources = 'LoginKit/LoginKit.bundle'
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
