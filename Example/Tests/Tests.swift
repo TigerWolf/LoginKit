@@ -9,7 +9,11 @@ class TableOfContentsSpec: QuickSpec {
         describe("login controller") {
 
             it("login") {
-                expect(2) == 2
+                expect(2) == 1
+            }
+            
+            it("login check"){
+                expect(LoginKitConfig.logoImage) == UIImage()
             }
             
 //            it("save password ticked"){
