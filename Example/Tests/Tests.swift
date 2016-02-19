@@ -12,8 +12,8 @@ class TableOfContentsSpec: QuickSpec {
                 expect(2) == 1
             }
             
-            it("login check"){
-                expect(LoginKitConfig.logoImage) == UIImage()
+            it("a login check"){
+                expect(LoginKitConfig.logoImage).to(beAnInstanceOf(UIImage))
             }
             
 //            it("save password ticked"){
