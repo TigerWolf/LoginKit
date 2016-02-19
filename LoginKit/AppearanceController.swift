@@ -12,9 +12,9 @@ import SVProgressHUD
 public let Appearance = AppearanceController.sharedInstance
 
 public class AppearanceController {
-    
+
     static let sharedInstance = AppearanceController()
-    
+
     public var backgroundColor = UIColor.blueColor()
     public var whiteColor = UIColor.whiteColor()
     public var buttonColor = UIColor.redColor()

@@ -2,13 +2,13 @@ import Foundation
 import KeychainAccess
 
 class User: NSObject, NSCoding {
-    
+
     let id: String
     let username: String
     var password: String?
-    
+
     let keychain = Keychain(service: NSBundle.mainBundle().bundleIdentifier!)
-    
+
     var authToken: String? {
         didSet {
             if LoginService.storePassword {
@@ -25,7 +25,7 @@ class User: NSObject, NSCoding {
             }
         }
     }
-    
+
     func clearToken() {
         do {
             try keychain.remove("authToken")
@@ -33,23 +33,23 @@ class User: NSObject, NSCoding {
             NSLog("Failed to clear authToken")
         }
     }
-    
+
     init(id: String, username: String) {
         self.id = id
         self.username = username
     }
-    
+
     required init(coder aDecoder: NSCoder) {
         if let username = aDecoder.decodeObjectForKey("username") as? String,
             let id = aDecoder.decodeObjectForKey("id") as? String {
                 self.id = id
                 self.username = username
-                
+
         } else {
             self.id = ""
             self.username = ""
         }
-        
+
 
         do {
             if let authToken = try keychain.get("authToken") {
@@ -59,7 +59,7 @@ class User: NSObject, NSCoding {
             NSLog("Failed to set authToken")
         }
     }
-    
+
     func encodeWithCoder(aCoder: NSCoder) {
         aCoder.encodeObject(self.id, forKey: "id")
         aCoder.encodeObject(self.username, forKey: "username")
@@ -67,7 +67,7 @@ class User: NSObject, NSCoding {
             aCoder.encodeObject(authToken, forKey: "authToken")
         }
     }
-    
-    
-    
+
+
+
 }

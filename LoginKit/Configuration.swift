@@ -17,19 +17,19 @@ public enum AuthType {
 }
 
 public class Configuration {
-    
+
     public static let sharedInstance = Configuration()
-    
+
     public var url: String = ""
-    
+
     public var destination: UIViewController = UIViewController()
-    
+
     // Prevent default initialization
     private init() {
     }
-    
+
     public var logoImage: UIImage = UIImage()
-    
+
     public var authType: AuthType = .JWT
-    
+
 }

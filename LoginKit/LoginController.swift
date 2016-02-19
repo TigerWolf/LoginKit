@@ -29,7 +29,7 @@ public class LoginController: UIViewController {
 
         self.savePasswordButton = UIButton()
         self.savePasswordButton.setTitle("Save logged in", forState: .Normal)
-        
+
         //Get bundle image
         let normalImage = UIImage(named: "LoginKit.bundle/images/icon_unchecked", inBundle: LoginKit.getBundle(), compatibleWithTraitCollection: nil) ?? UIImage()
         let selectedImage = UIImage(named: "LoginKit.bundle/images/icon_checked", inBundle: LoginKit.getBundle(), compatibleWithTraitCollection: nil) ?? UIImage()
@@ -118,24 +118,24 @@ public class LoginController: UIViewController {
 
         if let username = self.username.text, let password = self.password.text
             where username.characters.count > 0 && password.characters.count > 0 {
-                
+
                 if LoginKitConfig.authType == AuthType.JWT {
                     let parameters: Dictionary<String, AnyObject> = [
                         "username": username,
                         "password": password
                     ]
-                    
+
                     SVProgressHUD.showWithMaskType(SVProgressHUDMaskType.Black)
                     LoginService.request(.POST, "", parameters: parameters).validate()
                         .responseJSON() { response in
                             SVProgressHUD.dismiss()
-                            
-                            
+
+
                             if response.result.isSuccess {
                                 switch response.response!.statusCode {
                                 case 201:
                                     self.save_token(response.result.value!)
-                                    
+
                                 default:
                                     print("perform_login action: unknown status code")
                                 }
@@ -143,20 +143,20 @@ public class LoginController: UIViewController {
                     }
 
                 }
-                
+
                 if LoginKitConfig.authType == AuthType.Basic {
-                    
+
                     SVProgressHUD.showWithMaskType(SVProgressHUDMaskType.Black)
                     LoginService.request(.GET, "", parameters: nil).validate()
                         .authenticate(user: username, password: password)
                         .responseJSON() { response in
                             SVProgressHUD.dismiss()
-                            
+
                             if response.result.isSuccess {
                                 switch response.response!.statusCode {
                                 case 201:
                                     self.open_destination()
-                                    
+
                                 default:
                                     print("perform_login action: unknown status code")
                                 }
@@ -164,7 +164,7 @@ public class LoginController: UIViewController {
                     }
                 }
 
-                
+
         } else {
             let alert = UIAlertController(title: nil, message: "Please enter your username and password.", preferredStyle: .Alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
@@ -184,10 +184,10 @@ public class LoginController: UIViewController {
 
         open_destination()
     }
-    
+
     func open_destination(){
         //        self.presentViewController(LoginService.destination, animated: true, completion: nil)
-        
+
         // This could probably be done better - issue with being a framework and not having access to AppDelegate
         // "Application tried to present modally an active controller ios"
         // This also ensures we dont have any memory leaks

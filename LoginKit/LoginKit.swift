@@ -29,7 +29,7 @@ public class LoginKit {
     public class func loginScreenController() -> UIViewController{
         return LoginController()
     }
-    
+
     public class func getBundle() -> NSBundle {
         return NSBundle(forClass: LoginKit.self)
     }
