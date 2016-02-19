@@ -79,7 +79,6 @@ public class LoginController: UIViewController {
     func header() -> UIView {
         let view:UIView = UIView()
         view.frame = CGRectMake(0, 0, self.view.frame.size.width, 200)
-//        let myImage = UIImage(named: "uofa_logo_vertical")
         let myImage = LoginKitConfig.logoImage
         let imageView = UIImageView(image: myImage)
 
