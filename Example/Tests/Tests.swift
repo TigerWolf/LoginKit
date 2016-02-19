@@ -4,17 +4,35 @@ import Quick
 import Nimble
 import LoginKit
 
-class TableOfContentsSpec: QuickSpec {
+class LoginKitSpec: QuickSpec {
     override func spec() {
-        describe("login controller") {
-
-            it("login") {
+        describe("testing travis ci"){
+            it("failure") {
                 expect(2) == 1
             }
+            it("success") {
+                expect(1) == 1
+            }
+        }
+        
+        
+        describe("LoginKitConfig"){
             
-            it("a login check"){
+            it("logoImage is an image"){
                 expect(LoginKitConfig.logoImage).to(beAnInstanceOf(UIImage))
             }
+            
+            it("authType is JWT by default"){
+                expect(LoginKitConfig.authType) == AuthType.JWT
+            }
+            
+        }
+        
+        describe("LoginController") {
+
+            
+            
+            
             
 //            it("save password ticked"){
 //                let loginController = LoginController()
