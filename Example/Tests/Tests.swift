@@ -2,10 +2,12 @@
 
 import Quick
 import Nimble
-import LoginKit
+
+@testable import LoginKit
 
 class LoginKitSpec: QuickSpec {
     override func spec() {
+        
         describe("testing travis ci"){
             it("failure") {
                 expect(2) == 1
@@ -29,51 +31,15 @@ class LoginKitSpec: QuickSpec {
         }
         
         describe("LoginController") {
+            it("saves password on tap"){
+                let lc = LoginController()
+                let _ = lc.view
+                expect(lc.savePasswordButton.selected) == false
+                lc.savePasswordTapped()
+                expect(lc.savePasswordButton.selected) == true
 
-            
-            
-            
-            
-//            it("save password ticked"){
-//                let loginController = LoginController()
-//                expect(LoginService.storePassword) == false
-//                loginController.savePasswordTapped()
-//                expect(LoginService.storePassword) == true
-//            }
-//
-//            it("can read") {
-//                expect("number") == "string"
-//            }
-//
-//            it("will eventually fail") {
-//                expect("time").toEventually( equal("done") )
-//            }
-//            
-//            context("these will pass") {
-//
-//                it("can do maths") {
-//                    expect(23) == 23
-//                }
-//
-//                it("can read") {
-//                    expect("🐮") == "🐮"
-//                }
-//
-//                it("will eventually pass") {
-//                    var time = "passing"
-//
-//                    dispatch_async(dispatch_get_main_queue()) {
-//                        time = "done"
-//                    }
-//
-//                    waitUntil { done in
-//                        NSThread.sleepForTimeInterval(0.5)
-//                        expect(time) == "done"
-//
-//                        done()
-//                    }
-//                }
-//            }
+            }
+
         }
     }
 }
