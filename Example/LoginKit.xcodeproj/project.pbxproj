@@ -15,6 +15,14 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		BA5038051C719E7000877111 /* LoginKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5038031C719E7000877111 /* LoginKit.swift */; };
 		BA9A82FA1C76CC5F001F4162 /* LoginKit_ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9A82F91C76CC5F001F4162 /* LoginKit_ExampleTests.swift */; };
+		BA9A83021C76EA52001F4162 /* Test2.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9A83011C76EA52001F4162 /* Test2.swift */; };
+		BA9A83031C76EBC2001F4162 /* AppearanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF2E9961C758C9400369408 /* AppearanceController.swift */; };
+		BA9A83041C76EBC5001F4162 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF2E9971C758C9400369408 /* LoginController.swift */; };
+		BA9A83051C76EBC7001F4162 /* LoginServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF2E99A1C758CD400369408 /* LoginServices.swift */; };
+		BA9A83061C76EBCB001F4162 /* LoginKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5038031C719E7000877111 /* LoginKit.swift */; };
+		BA9A83071C76EBD2001F4162 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABE6F741C70511800156634 /* User.swift */; };
+		BA9A83081C76EBD4001F4162 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF2E9941C75842700369408 /* Configuration.swift */; };
+		BA9A83091C76EBDB001F4162 /* LoginKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BAF2E98C1C73FBC800369408 /* LoginKit.bundle */; };
 		BABE6F751C70511800156634 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABE6F741C70511800156634 /* User.swift */; };
 		BAEC45BC1C729DFE00DF2C5C /* PrivateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEC45BB1C729DFE00DF2C5C /* PrivateController.swift */; };
 		BAF2E98D1C73FBC800369408 /* LoginKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BAF2E98C1C73FBC800369408 /* LoginKit.bundle */; };
@@ -58,6 +66,8 @@
 		BA9A82F71C76CC5E001F4162 /* LoginKit_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoginKit_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA9A82F91C76CC5F001F4162 /* LoginKit_ExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginKit_ExampleTests.swift; sourceTree = "<group>"; };
 		BA9A82FB1C76CC5F001F4162 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BA9A83011C76EA52001F4162 /* Test2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test2.swift; sourceTree = "<group>"; };
+		BA9A830A1C76EC9F001F4162 /* Pods_LoginKit_Tests.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_LoginKit_Tests.framework; path = "Pods/../build/Debug-iphoneos/Pods_LoginKit_Tests.framework"; sourceTree = "<group>"; };
 		BABE6F741C70511800156634 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = ../LoginKit/Models/User.swift; sourceTree = "<group>"; };
 		BAEC45BB1C729DFE00DF2C5C /* PrivateController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivateController.swift; sourceTree = "<group>"; };
 		BAF2E98C1C73FBC800369408 /* LoginKit.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = LoginKit.bundle; path = ../LoginKit/LoginKit.bundle; sourceTree = "<group>"; };
@@ -177,6 +187,7 @@
 			children = (
 				BA9A82F91C76CC5F001F4162 /* LoginKit_ExampleTests.swift */,
 				BA9A82FB1C76CC5F001F4162 /* Info.plist */,
+				BA9A83011C76EA52001F4162 /* Test2.swift */,
 			);
 			path = LoginKit_ExampleTests;
 			sourceTree = "<group>";
@@ -207,6 +218,7 @@
 		C88AC4720FCD59CEA15D11D4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BA9A830A1C76EC9F001F4162 /* Pods_LoginKit_Tests.framework */,
 				9632822485B3F5DB7E02F5F6 /* Pods_LoginKit_Example.framework */,
 				A6183ED7663A70336A1DC630 /* Pods_LoginKit_Tests.framework */,
 			);
@@ -311,6 +323,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA9A83091C76EBDB001F4162 /* LoginKit.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,6 +435,7 @@
 				BAF2E99B1C758CD400369408 /* LoginServices.swift in Sources */,
 				BABE6F751C70511800156634 /* User.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				BA9A83021C76EA52001F4162 /* Test2.swift in Sources */,
 				BAF2E9981C758C9400369408 /* AppearanceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -431,6 +445,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA9A82FA1C76CC5F001F4162 /* LoginKit_ExampleTests.swift in Sources */,
+				BA9A83061C76EBCB001F4162 /* LoginKit.swift in Sources */,
+				BA9A83081C76EBD4001F4162 /* Configuration.swift in Sources */,
+				BA9A83071C76EBD2001F4162 /* User.swift in Sources */,
+				BA9A83041C76EBC5001F4162 /* LoginController.swift in Sources */,
+				BA9A83031C76EBC2001F4162 /* AppearanceController.swift in Sources */,
+				BA9A83051C76EBC7001F4162 /* LoginServices.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -555,6 +575,10 @@
 			baseConfigurationReference = DDA82619E675D3550FCD5D0D /* Pods-LoginKit_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = LoginKit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = LoginKit;
@@ -568,6 +592,10 @@
 			baseConfigurationReference = 337DF9310B65DFE9C75B779C /* Pods-LoginKit_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = LoginKit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = LoginKit;
@@ -587,6 +615,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kieran.LoginKit-ExampleTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LoginKit_Example.app/LoginKit_Example";
 			};
 			name = Debug;
@@ -601,6 +630,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kieran.LoginKit-ExampleTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LoginKit_Example.app/LoginKit_Example";
 			};
 			name = Release;

@@ -93,6 +93,10 @@ public class LoginController: UIViewController {
         view.addSubview(imageView)
         return view
     }
+    
+    func woot() -> Int {
+        return 777
+    }
 
     func buildField(name: String, top: CGFloat) -> UITextField {
         let field = UITextField()
