@@ -6,6 +6,7 @@ target 'LoginKit' do
   pod 'SVProgressHUD'
   pod 'SwiftyJSON'
   pod 'KeychainAccess'
+  pod 'IQKeyboardManager'
 end
 
 target 'LoginKitTests' do

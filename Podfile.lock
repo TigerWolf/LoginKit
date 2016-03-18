@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (3.2.0)
+  - IQKeyboardManager (4.0.0)
   - KeychainAccess (2.3.3)
   - Nimble (3.0.0)
   - Quick (0.8.0)
@@ -8,6 +9,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 3.0)
+  - IQKeyboardManager
   - KeychainAccess
   - Nimble (= 3.0.0)
   - Quick (~> 0.8.0)
@@ -16,12 +18,13 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Alamofire: 4da478599fccddff361205c8929333d7fe18dceb
+  IQKeyboardManager: b91928f7927ba55a5829b4dcf4b7a6736ac9fc22
   KeychainAccess: 9b7e49e48277e329b1b3195e54697ed313d30acf
   Nimble: 4c353d43735b38b545cbb4cb91504588eb5de926
   Quick: 563d0f6ec5f72e394645adb377708639b7dd38ab
   SVProgressHUD: 748080e4f36e603f6c02aec292664239df5279c1
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
-PODFILE CHECKSUM: 79d0d87617df572bf98e1f1d547b566cc8a9ccb6
+PODFILE CHECKSUM: 0effc8364ccce390019cc5eab19fd4aeb7626732
 
-COCOAPODS: 1.0.0.beta.3
+COCOAPODS: 1.0.0.beta.4
