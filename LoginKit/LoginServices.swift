@@ -7,7 +7,25 @@ public class LoginServices {
 
     public static let sharedInstance = LoginServices()
 
-    var user: User?
+    public var user: User?{
+        didSet {
+            if let appDir = self.appDir {
+                if user != nil {
+                    if NSKeyedArchiver.archiveRootObject(user!, toFile: appDir + "/user") == false {
+                        // Error with storing user
+                        NSLog("Error with storing user")
+                    }
+                } else {
+                    do {
+                        try NSFileManager.defaultManager().removeItemAtPath(appDir + "/user")
+                    } catch {
+                        // Error with storing user
+                        NSLog("Error with storing user")                        
+                    }
+                }
+            }
+        }
+    }
 
     let appDir: String! = NSSearchPathForDirectoriesInDomains(.LibraryDirectory, .UserDomainMask, true).first
 
@@ -19,7 +37,7 @@ public class LoginServices {
         }
     }
 
-    func request(method: Alamofire.Method, _ path: String, parameters: [String: AnyObject]? = nil) -> Alamofire.Request {
+    public func request(method: Alamofire.Method, _ path: String, parameters: [String: AnyObject]? = nil) -> Alamofire.Request {
         let location = LoginKitConfig.url + path
 
         let manager = Alamofire.Manager.sharedInstance
