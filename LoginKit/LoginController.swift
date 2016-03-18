@@ -93,10 +93,6 @@ public class LoginController: UIViewController {
         view.addSubview(imageView)
         return view
     }
-    
-    func woot() -> Int {
-        return 777
-    }
 
     func buildField(name: String, top: CGFloat) -> UITextField {
         let field = UITextField()
@@ -125,19 +121,19 @@ public class LoginController: UIViewController {
 
                 if LoginKitConfig.authType == AuthType.JWT {
                     let parameters: Dictionary<String, AnyObject> = [
-                        "username": username,
+                        "email": username,
                         "password": password
                     ]
 
                     SVProgressHUD.showWithMaskType(SVProgressHUDMaskType.Black)
-                    LoginService.request(.POST, "", parameters: parameters).validate()
+                    LoginService.request(.POST, LoginKitConfig.loginPath, parameters: parameters).validate()
                         .responseJSON() { response in
                             SVProgressHUD.dismiss()
 
 
                             if response.result.isSuccess {
                                 switch response.response!.statusCode {
-                                case 201:
+                                case 201, 200:
                                     self.saveToken(response.result.value!)
 
                                 default:
