@@ -39,9 +39,10 @@ pod install
 
 (see sample Xcode project in `/Example`)
 
-`LoginKit` is created as a singleton (i.e. it doesn't need to be explicitly allocated and instantiated; you directly call `[LoginKit method]`).
+`LoginKit` is created as a singleton (i.e. it doesn't need to be explicitly allocated and instantiated; you directly call `LoginKit.method`).
 
 First set the config using `LoginKitConfig`
+
 ```
 // Setup
 LoginKitConfig.url = "https://example.com/token"
@@ -71,7 +72,7 @@ LoginKitConfig.logoImage = UIImage(named: "logo") ?? UIImage()
 For example, after a user has logged in you can use the `LoginService` to make further network requests:
 
 ```
-LoginService.request(.GET, "", parameters: nil).validate()
+LoginService.request(.GET, "api/v1/beers", parameters: nil).validate()
   .responseJSON() { response in
     if response.result.isSuccess {
          let json = JSON(response.result.value!)
