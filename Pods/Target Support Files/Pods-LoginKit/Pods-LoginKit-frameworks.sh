@@ -84,14 +84,16 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "Pods-LoginKit/Alamofire.framework"
-  install_framework "Pods-LoginKit/KeychainAccess.framework"
-  install_framework "Pods-LoginKit/SVProgressHUD.framework"
-  install_framework "Pods-LoginKit/SwiftyJSON.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/Alamofire/Alamofire.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/IQKeyboardManager/IQKeyboardManager.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/KeychainAccess/KeychainAccess.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/SVProgressHUD/SVProgressHUD.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/SwiftyJSON/SwiftyJSON.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "Pods-LoginKit/Alamofire.framework"
-  install_framework "Pods-LoginKit/KeychainAccess.framework"
-  install_framework "Pods-LoginKit/SVProgressHUD.framework"
-  install_framework "Pods-LoginKit/SwiftyJSON.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/Alamofire/Alamofire.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/IQKeyboardManager/IQKeyboardManager.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/KeychainAccess/KeychainAccess.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/SVProgressHUD/SVProgressHUD.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/SwiftyJSON/SwiftyJSON.framework"
 fi
