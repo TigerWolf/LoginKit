@@ -1,9 +1,9 @@
 import Foundation
 import KeychainAccess
 
-class User: NSObject, NSCoding {
+public class User: NSObject, NSCoding {
 
-    let id: String
+    public let id: String
     let username: String
     var password: String?
 
@@ -39,7 +39,7 @@ class User: NSObject, NSCoding {
         self.username = username
     }
 
-    required init(coder aDecoder: NSCoder) {
+    public required init(coder aDecoder: NSCoder) {
         if let username = aDecoder.decodeObjectForKey("username") as? String,
             let id = aDecoder.decodeObjectForKey("id") as? String {
                 self.id = id
@@ -60,7 +60,7 @@ class User: NSObject, NSCoding {
         }
     }
 
-    func encodeWithCoder(aCoder: NSCoder) {
+    public func encodeWithCoder(aCoder: NSCoder) {
         aCoder.encodeObject(self.id, forKey: "id")
         aCoder.encodeObject(self.username, forKey: "username")
         if let authToken = self.authToken {
