@@ -82,6 +82,14 @@ LoginService.request(.GET, "api/v1/beers", parameters: nil).validate()
   }
 ```
 
+## Compatibility
+
+[![Swift 2.1.1 compatible](https://img.shields.io/badge/Language-Swift2-blue.svg?style=flat)](https://developer.apple.com/swift)
+
+Minimum iOS Target: iOS 8.0
+
+Minimum Xcode Version: Xcode 7.2
+
 ## Contributing to this project
 
 If you have feature requests or bug reports, feel free to help out by sending pull requests or by [creating new issues](https://github.com/TigerWolf/LoginKit/issues/new).
