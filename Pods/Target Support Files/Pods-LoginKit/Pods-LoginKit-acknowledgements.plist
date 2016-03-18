@@ -67,7 +67,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 </string>
 			<key>Title</key>
-			<string>IQKeyboardManager</string>
+			<string>IQKeyboardManagerSwift</string>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
 		</dict>

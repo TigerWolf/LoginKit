@@ -1,8 +1,8 @@
 EMBEDDED_CONTENT_CONTAINS_SWIFT = YES
-FRAMEWORK_SEARCH_PATHS = $(inherited) "$CONFIGURATION_BUILD_DIR/Nimble" "$CONFIGURATION_BUILD_DIR/Quick"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "$CONFIGURATION_BUILD_DIR/Alamofire" "$CONFIGURATION_BUILD_DIR/IQKeyboardManagerSwift" "$CONFIGURATION_BUILD_DIR/KeychainAccess" "$CONFIGURATION_BUILD_DIR/LoginKit" "$CONFIGURATION_BUILD_DIR/Nimble" "$CONFIGURATION_BUILD_DIR/Quick" "$CONFIGURATION_BUILD_DIR/SVProgressHUD" "$CONFIGURATION_BUILD_DIR/SwiftyJSON"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
 LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
-OTHER_CFLAGS = $(inherited) -iquote "$CONFIGURATION_BUILD_DIR/Nimble/Nimble.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/Quick/Quick.framework/Headers"
-OTHER_LDFLAGS = $(inherited) -framework "Nimble" -framework "Quick"
+OTHER_CFLAGS = $(inherited) -iquote "$CONFIGURATION_BUILD_DIR/Alamofire/Alamofire.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/KeychainAccess/KeychainAccess.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/LoginKit/LoginKit.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/Nimble/Nimble.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/Quick/Quick.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/SVProgressHUD/SVProgressHUD.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/SwiftyJSON/SwiftyJSON.framework/Headers"
+OTHER_LDFLAGS = $(inherited) -framework "Alamofire" -framework "IQKeyboardManagerSwift" -framework "KeychainAccess" -framework "LoginKit" -framework "Nimble" -framework "Quick" -framework "SVProgressHUD" -framework "SwiftyJSON"
 OTHER_SWIFT_FLAGS = $(inherited) "-D" "COCOAPODS"
 PODS_ROOT = ${SRCROOT}/Pods
