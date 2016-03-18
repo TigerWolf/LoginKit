@@ -160,12 +160,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BA9A835E1C777805001F4162 /* Build configuration list for PBXNativeTarget "LoginKit" */;
 			buildPhases = (
-				BD7F068D4C9ABBDBCFBEB177 /* Check Pods Manifest.lock */,
+				BD7F068D4C9ABBDBCFBEB177 /* 📦 Check Pods Manifest.lock */,
 				BA9A83451C777805001F4162 /* Sources */,
 				BA9A83461C777805001F4162 /* Frameworks */,
 				BA9A83471C777805001F4162 /* Headers */,
 				BA9A83481C777805001F4162 /* Resources */,
-				90F35F79D3990DB2D64E1970 /* Copy Pods Resources */,
+				90F35F79D3990DB2D64E1970 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -180,12 +180,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BA9A83611C777805001F4162 /* Build configuration list for PBXNativeTarget "LoginKitTests" */;
 			buildPhases = (
-				7CFED40539FF1E1245E0A955 /* Check Pods Manifest.lock */,
+				7CFED40539FF1E1245E0A955 /* 📦 Check Pods Manifest.lock */,
 				BA9A83501C777805001F4162 /* Sources */,
 				BA9A83511C777805001F4162 /* Frameworks */,
 				BA9A83521C777805001F4162 /* Resources */,
-				7421FD2C59C67C0B0DFE4668 /* Embed Pods Frameworks */,
-				4B1652F91D59213E11FE4915 /* Copy Pods Resources */,
+				7421FD2C59C67C0B0DFE4668 /* 📦 Embed Pods Frameworks */,
+				4B1652F91D59213E11FE4915 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -252,14 +252,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4B1652F91D59213E11FE4915 /* Copy Pods Resources */ = {
+		4B1652F91D59213E11FE4915 /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "📦 Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -267,14 +267,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LoginKitTests/Pods-LoginKitTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7421FD2C59C67C0B0DFE4668 /* Embed Pods Frameworks */ = {
+		7421FD2C59C67C0B0DFE4668 /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "📦 Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -282,14 +282,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LoginKitTests/Pods-LoginKitTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7CFED40539FF1E1245E0A955 /* Check Pods Manifest.lock */ = {
+		7CFED40539FF1E1245E0A955 /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -297,14 +297,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		90F35F79D3990DB2D64E1970 /* Copy Pods Resources */ = {
+		90F35F79D3990DB2D64E1970 /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "📦 Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -312,14 +312,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LoginKit/Pods-LoginKit-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		BD7F068D4C9ABBDBCFBEB177 /* Check Pods Manifest.lock */ = {
+		BD7F068D4C9ABBDBCFBEB177 /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;

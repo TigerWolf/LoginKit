@@ -870,8 +870,8 @@ public class Keychain {
                     print("error:[\(remoteError!.code)] \(remoteError!.localizedDescription)")
                 }
             }
-            if let credentials = credentials as? [[String: AnyObject]] {
-                let credentials = credentials.map { credentials -> [String: String] in
+            if let credentials = credentials {
+                let credentials = (credentials as NSArray).map { credentials -> [String: String] in
                     var credential = [String: String]()
                     if let server = credentials[AttributeServer] as? String {
                         credential["server"] = server
@@ -2167,7 +2167,7 @@ extension Status : RawRepresentable, CustomStringConvertible {
         case Decode:
             return "Unable to decode the provided data."
         case Internal:
-            return "An internal error occured in the Security framework."
+            return "An internal error occurred in the Security framework."
         case UnsupportedAlgorithm:
             return "An unsupported algorithm was encountered."
         case UnsupportedOperation:
