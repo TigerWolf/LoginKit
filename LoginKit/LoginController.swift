@@ -190,13 +190,16 @@ public class LoginController: UIViewController {
     }
 
     func openDestination() {
+        
+        self.username.resignFirstResponder()
+        self.password.resignFirstResponder()
         //        self.presentViewController(LoginService.destination, animated: true, completion: nil)
 
         // This could probably be done better - issue with being a framework and not having access to AppDelegate
         // "Application tried to present modally an active controller ios"
         // This also ensures we dont have any memory leaks
         if let window = UIApplication.sharedApplication().keyWindow {
-            window.rootViewController = LoginKitConfig.destination
+            window.rootViewController = LoginKitConfig.destination()
             window.makeKeyAndVisible()
         }
     }
