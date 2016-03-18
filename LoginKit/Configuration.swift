@@ -21,8 +21,10 @@ public class Configuration {
     public static let sharedInstance = Configuration()
 
     public var url: String = ""
+    
+    public var loginPath: String = "login"
 
-    public var destination: UIViewController = UIViewController()
+    public var destination: () -> (UIViewController) = { () -> UIViewController in UIViewController()}
 
     // Prevent default initialization
     private init() {
