@@ -155,7 +155,7 @@ public class LoginController: UIViewController {
                         "password": password
                     ]
 
-                    SVProgressHUD.showWithMaskType(SVProgressHUDMaskType.Black)
+                    SVProgressHUD.show()
                     LoginService.request(.POST, LoginKitConfig.loginPath, parameters: parameters).validate()
                         .responseJSON() { response in
                             SVProgressHUD.dismiss()
@@ -176,7 +176,7 @@ public class LoginController: UIViewController {
 
                 if LoginKitConfig.authType == AuthType.Basic {
 
-                    SVProgressHUD.showWithMaskType(SVProgressHUDMaskType.Black)
+                    SVProgressHUD.show()
                     LoginService.request(.GET, LoginKitConfig.loginPath, parameters: nil).validate()
                         .authenticate(user: username, password: password)
                         .responseJSON() { response in
