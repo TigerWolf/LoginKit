@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "LoginKit"
-  s.version          = "0.0.2"
+  s.version          = "0.0.3"
   s.summary          = "LoginKit is a framework to help with creating a login screen."
 
 # This description is used to generate tags and improve search results.
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description      = <<-DESC
   This library makes creating a login screen for your app simple by providing some helper methods and services
-  that you can easily add into your next iOS app.
+  that you can easily add into your next iOS app. It currently support Basic Auth login scheme and JWT.
                        DESC
 
   s.homepage         = "https://github.com/TigerWolf/LoginKit"
