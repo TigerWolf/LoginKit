@@ -5,7 +5,22 @@ public class User: NSObject, NSCoding {
 
     public let id: String
     let username: String
-    var password: String?
+    var password: String? {
+        didSet {
+            if LoginService.storePassword && LoginKitConfig.authType == AuthType.Basic {
+                // Store to keychain
+                if password != nil {
+                    do {
+                        try keychain.set(password!, key: "password")
+                    } catch {
+                        NSLog("Failed to set password")
+                    }
+                } else {
+                    self.clearPassword()
+                }
+            }
+        }
+    }
 
     let keychain = Keychain(service: NSBundle.mainBundle().bundleIdentifier!)
 
@@ -13,14 +28,17 @@ public class User: NSObject, NSCoding {
         didSet {
             if LoginService.storePassword {
                 // Store to keychain
-                if authToken != nil {
-                    do {
-                        try keychain.set(authToken!, key: "authToken")
-                    } catch {
-                        NSLog("Failed to set authToken")
+                if LoginKitConfig.authType == AuthType.JWT {
+                    
+                    if authToken != nil {
+                        do {
+                            try keychain.set(authToken!, key: "authToken")
+                        } catch {
+                            NSLog("Failed to set authToken")
+                        }
+                    } else {
+                        self.clearToken()
                     }
-                } else {
-                    self.clearToken()
                 }
             }
         }
@@ -31,6 +49,14 @@ public class User: NSObject, NSCoding {
             try keychain.remove("authToken")
         } catch {
             NSLog("Failed to clear authToken")
+        }
+    }
+    
+    func clearPassword() {
+        do {
+            try keychain.remove("password")
+        } catch {
+            NSLog("Failed to clear password")
         }
     }
 
@@ -49,14 +75,23 @@ public class User: NSObject, NSCoding {
             self.id = ""
             self.username = ""
         }
-
-
+        
         do {
-            if let authToken = try keychain.get("authToken") {
-                self.authToken = authToken
+            if let password = try keychain.get("password") {
+                self.password = password
             }
         } catch {
-            NSLog("Failed to set authToken")
+            NSLog("Failed to set password")
+        }
+
+        if (LoginKitConfig.savedLogin == false){
+            do {
+                if let authToken = try keychain.get("authToken") {
+                    self.authToken = authToken
+                }
+            } catch {
+                NSLog("Failed to set authToken")
+            }
         }
     }
 
