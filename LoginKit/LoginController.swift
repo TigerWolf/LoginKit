@@ -2,6 +2,10 @@ import UIKit
 import SVProgressHUD
 import SwiftyJSON
 
+/**
+ This LoginController displays a configurable login screen that is used by the rest
+ of the library.
+ */
 public class LoginController: UIViewController {
 
     var centerCoords: CGFloat {
@@ -13,6 +17,10 @@ public class LoginController: UIViewController {
 
     var savePasswordButton: UIButton!
 
+    /** 
+    This LoginController displays a configurable login screen that is used by the rest
+     of the library.
+     */
     override public func viewDidLoad() {
         super.viewDidLoad()
 

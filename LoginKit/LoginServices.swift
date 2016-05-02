@@ -6,7 +6,10 @@ public let LoginService = LoginServices.sharedInstance
 public class LoginServices {
 
     public static let sharedInstance = LoginServices()
-
+    
+    /**
+     This stores the user that has logged into the application.
+     */
     public var user: User?{
         didSet {
             if let appDir = self.appDir {
@@ -42,6 +45,8 @@ public class LoginServices {
      
      This will also check for invalid server responses and display
      a corresponding error.
+     
+     This extends functionality of the Alamofire method.
      
      - returns: Request
      */
@@ -126,6 +131,9 @@ public class LoginServices {
         return request
     }
 
+    /**
+     Logs the user out of the app and sends them to the login scree. 
+     */
     public func logoff() {
         LoginService.user?.clearToken() // Removes the token from the keychain
         LoginService.clearUser() // Removes the user from the storage

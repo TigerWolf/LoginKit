@@ -37,10 +37,25 @@ public class LoginKit {
         return LoginController()
     }
 
+    
+    /**
+     This method returns the bundle for LoginKit
+     
+     - returns: NSBundle for LoginKit
+     */
     public class func getBundle() -> NSBundle {
         return NSBundle(forClass: LoginKit.self)
     }
     
+    /**
+     Convenience method for accessing the AppearanceController.
+     It also allows access due to namespacing.
+     
+     This controller allows for the configuration of the LoginController
+     colors.
+     
+     - returns: AppearanceController
+     */
     public class func Appearance() -> AppearanceController {
         return AppearanceController.sharedInstance
     }
