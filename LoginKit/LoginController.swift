@@ -28,16 +28,17 @@ public class LoginController: UIViewController {
         self.view.addSubview(self.password)
 
         self.savePasswordButton = UIButton()
-        self.savePasswordButton.setTitle("Save logged in", forState: .Normal)
+        self.savePasswordButton.setTitle("Save login", forState: .Normal)
 
         // Get bundle image
         let normalImage = UIImage(named: "LoginKit.bundle/images/icon_unchecked", inBundle: LoginKit.getBundle(), compatibleWithTraitCollection: nil) ?? UIImage()
         let selectedImage = UIImage(named: "LoginKit.bundle/images/icon_checked", inBundle: LoginKit.getBundle(), compatibleWithTraitCollection: nil) ?? UIImage()
 
+        
         self.savePasswordButton.setImage(normalImage, forState: .Normal)
         self.savePasswordButton.setImage(selectedImage, forState: .Selected)
         self.savePasswordButton.imageView?.tintColor = Appearance.whiteColor
-        self.savePasswordButton.addTarget(self, action: "savePasswordTapped", forControlEvents: .TouchUpInside)
+        self.savePasswordButton.addTarget(self, action: #selector(LoginController.savePasswordTapped), forControlEvents: .TouchUpInside)
         self.view.addSubview(self.savePasswordButton)
         self.savePasswordButton.autoresizingMask = [.FlexibleLeftMargin, .FlexibleRightMargin]
         self.savePasswordButton.titleLabel?.font = self.password.font
@@ -68,7 +69,7 @@ public class LoginController: UIViewController {
             login.frame = CGRectMake(centerCoords, self.password.frame.maxY + 20, 235, 50)
         }
         login.addTarget(self,
-            action: "performLogin:",
+            action: #selector(LoginController.performLogin(_:)),
             forControlEvents: UIControlEvents.TouchUpInside)
         login.autoresizingMask = [.FlexibleLeftMargin, .FlexibleRightMargin]
         self.view.addSubview(login)
@@ -80,6 +81,20 @@ public class LoginController: UIViewController {
             if user.authToken != nil {
                 openDestination()
             }
+        }
+        if let password = LoginService.user?.password, let username = LoginService.user?.username where
+            password.characters.count > 0 && username.characters.count > 0
+        {
+            openDestination()
+        }
+    }
+    
+    override public func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if let user = LoginService.user {
+            self.username.text = user.username
+            self.password.text = user.password
         }
     }
 
@@ -154,16 +169,17 @@ public class LoginController: UIViewController {
                 if LoginKitConfig.authType == AuthType.Basic {
 
                     SVProgressHUD.showWithMaskType(SVProgressHUDMaskType.Black)
-                    LoginService.request(.GET, "", parameters: nil).validate()
+                    LoginService.request(.GET, LoginKitConfig.loginPath, parameters: nil).validate()
                         .authenticate(user: username, password: password)
                         .responseJSON() { response in
                             SVProgressHUD.dismiss()
 
                             if response.result.isSuccess {
                                 switch response.response!.statusCode {
-                                case 201:
+                                case 201, 200:
+                                    LoginService.user = User(id: username, username: username)
+                                    LoginService.user?.password = password
                                     self.openDestination()
-
                                 default:
                                     print("performLogin action: unknown status code")
                                 }
@@ -211,5 +227,14 @@ public class LoginController: UIViewController {
         self.savePasswordButton.selected = !self.savePasswordButton.selected
         LoginService.storePassword = self.savePasswordButton.selected
     }
+    
+    override public func shouldAutorotate() -> Bool {
+        return true
+    }
+    
+    override public func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.Portrait
+    }
+
 
 }
