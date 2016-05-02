@@ -48,6 +48,9 @@ public class LoginController: UIViewController {
             self.password.frame.height)
         self.savePasswordButton.imageEdgeInsets = UIEdgeInsetsMake(0.0, self.savePasswordButton.frame.width - (normalImage.size.width + 32.0), 0.0, 0.0)
         self.savePasswordButton.titleEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, 0.0, normalImage.size.width + 30)
+        if (LoginKitConfig.savedLogin == false){
+            self.savePasswordButton.hidden = true
+        }
 
         let login = UIButton(type: UIButtonType.System)
         login.setTitle("Login", forState: UIControlState.Normal)
@@ -59,7 +62,11 @@ public class LoginController: UIViewController {
         login.layer.borderColor = Appearance.whiteColor.CGColor
         login.layer.borderWidth = 1.0
         login.backgroundColor = Appearance.buttonColor
-        login.frame = CGRectMake(centerCoords, self.savePasswordButton.frame.maxY + 3, 235, 50)
+        if LoginKitConfig.savedLogin == true {
+            login.frame = CGRectMake(centerCoords, self.savePasswordButton.frame.maxY + 3, 235, 50)
+        } else {
+            login.frame = CGRectMake(centerCoords, self.password.frame.maxY + 20, 235, 50)
+        }
         login.addTarget(self,
             action: "performLogin:",
             forControlEvents: UIControlEvents.TouchUpInside)

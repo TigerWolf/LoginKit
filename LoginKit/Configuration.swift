@@ -25,6 +25,8 @@ public class Configuration {
     public var loginPath: String = "login"
 
     public var destination: () -> (UIViewController) = { () -> UIViewController in UIViewController()}
+    
+    public var savedLogin: Bool = true
 
     // Prevent default initialization
     private init() {
