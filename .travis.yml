@@ -8,7 +8,7 @@ cache: cocoapods
 xcode_workspace: LoginKit.xcworkspace
 xcode_scheme: LoginKit
 podfile: Podfile
-xcode_sdk: iphonesimulator9.2
+xcode_sdk: iphonesimulator9.3
 before_install:
 - gem install cocoapods # Since Travis is not always on latest version
 # - pod install --project-directory=Example
