@@ -36,6 +36,15 @@ public class LoginServices {
             self.user = user
         }
     }
+    
+    /**
+     Makes a network request using the authentication of the user.
+     
+     This will also check for invalid server responses and display
+     a corresponding error.
+     
+     - returns: Request
+     */
 
     public func request(method: Alamofire.Method, _ path: String, parameters: [String: AnyObject]? = nil) -> Alamofire.Request {
         let location = LoginKitConfig.url + path
@@ -77,6 +86,12 @@ public class LoginServices {
                 } else if response.response?.statusCode == 500 {
                     // If the request fails, then check if the connection is open
                     message = "Internal server error, please try again later."
+                } else if response.response == nil {
+                    if LoginKitConfig.authType == AuthType.Basic {
+                        // This looks like hacky way to do it - why return -999 Cancelled?
+                        logoff = true
+                        message = "Your login details are incorrect."
+                    }
                 } else if response.response?.statusCode == nil {
                     // Cancelled requests have no status code
                     if response.result.error!.code == NSURLErrorCancelled {
