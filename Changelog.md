@@ -4,6 +4,7 @@
 -------
 
 * Follow redirections on Authentication
+* Add button border customization
 
 0.0.3
 -------
