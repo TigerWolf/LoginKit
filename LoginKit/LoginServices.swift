@@ -91,24 +91,20 @@ public class LoginServices {
             }
         }
         
-        var request = manager.request(method, location, parameters: parameters, encoding: .JSON, headers: headers).validate()
-
-//        if let username = self.user?.username, let password = self.user?.password {
-//            request = request.authenticate(user: username, password: password)
-//        }
+        let request = manager.request(method, location, parameters: parameters, encoding: .JSON, headers: headers).validate()
 
         request.responseJSON { response in
-            var message: String?
+            var message: String? = "Unexpected error, please try again later."
             var logoff = false
 
             if response.result.isSuccess {
                 // Success is handled in seperate implementations
+                message = nil
             } else {
                 // If the token expires
                 if response.response?.statusCode == 401 && request.request!.HTTPMethod == "GET" {
                     if LoginKitConfig.authType == AuthType.JWT {
                         logoff = true
-                        // FIXME: This is showing up for invalid logins on Basic Auth - use more reliable method
                         message = "Your session has expired. Please log in again."
                     } else {
                         message = "Your login details are incorrect."
