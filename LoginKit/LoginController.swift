@@ -148,6 +148,9 @@ public class LoginController: UIViewController {
 
         if let username = self.username.text, let password = self.password.text
             where username.characters.count > 0 && password.characters.count > 0 {
+            
+            LoginService.user = User(id: username, username: username)
+            LoginService.user?.password = password
 
                 if LoginKitConfig.authType == AuthType.JWT {
                     let parameters: Dictionary<String, AnyObject> = [
@@ -185,8 +188,6 @@ public class LoginController: UIViewController {
                             if response.result.isSuccess {
                                 switch response.response!.statusCode {
                                 case 201, 200:
-                                    LoginService.user = User(id: username, username: username)
-                                    LoginService.user?.password = password
                                     self.openDestination()
                                 default:
                                     print("performLogin action: unknown status code")
