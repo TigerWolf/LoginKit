@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "LoginKit"
-  s.version          = "0.0.3"
+  s.version          = "0.0.4"
   s.summary          = "LoginKit is a framework to help with creating a login screen."
 
 # This description is used to generate tags and improve search results.

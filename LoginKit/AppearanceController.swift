@@ -17,6 +17,8 @@ public class AppearanceController {
 
     public var backgroundColor = UIColor.blueColor()
     public var whiteColor = UIColor.whiteColor()
+    
     public var buttonColor = UIColor.redColor()
+    public var buttonBorderColor = UIColor.whiteColor()
 
 }

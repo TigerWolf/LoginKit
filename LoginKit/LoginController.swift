@@ -68,7 +68,7 @@ public class LoginController: UIViewController {
         login.clipsToBounds = true
         login.layer.cornerRadius = 5
         login.sizeToFit()
-        login.layer.borderColor = Appearance.whiteColor.CGColor
+        login.layer.borderColor = Appearance.buttonBorderColor.CGColor
         login.layer.borderWidth = 1.0
         login.backgroundColor = Appearance.buttonColor
         if LoginKitConfig.savedLogin == true {
@@ -119,7 +119,7 @@ public class LoginController: UIViewController {
         view.autoresizingMask = [.FlexibleLeftMargin, .FlexibleRightMargin]
 
         imageView.contentMode = .ScaleAspectFit
-        imageView.bounds = CGRectInset(imageView.frame, 10.0, 10.0)
+        imageView.bounds = CGRectInset(imageView.frame, 20.0, 25.0)
         view.addSubview(imageView)
         return view
     }
