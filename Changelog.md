@@ -1,5 +1,10 @@
 # Changelog
 
+0.0.4
+-------
+
+* Follow redirections on Authentication
+
 0.0.3
 -------
 

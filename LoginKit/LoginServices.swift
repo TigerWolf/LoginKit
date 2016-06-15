@@ -38,6 +38,22 @@ public class LoginServices {
         if let appDir = self.appDir, user = NSKeyedUnarchiver.unarchiveObjectWithFile(appDir + "/user") as? User {
             self.user = user
         }
+        
+        Alamofire.Manager.sharedInstance.delegate.taskWillPerformHTTPRedirection = { session, task, response, request in
+            var redirectedRequest = request
+            
+            if let
+                originalRequest = task.originalRequest,
+                headers = originalRequest.allHTTPHeaderFields,
+                authorizationHeaderValue = headers["Authorization"]
+            {
+                let mutableRequest = request.mutableCopy() as! NSMutableURLRequest
+                mutableRequest.setValue(authorizationHeaderValue, forHTTPHeaderField: "Authorization")
+                redirectedRequest = mutableRequest
+            }
+            
+            return redirectedRequest
+        }
     }
     
     /**
@@ -52,20 +68,34 @@ public class LoginServices {
      */
 
     public func request(method: Alamofire.Method, _ path: String, parameters: [String: AnyObject]? = nil) -> Alamofire.Request {
+        
         let location = LoginKitConfig.url + path
 
         let manager = Alamofire.Manager.sharedInstance
 
         var headers = [String: String]()
-        if let user = self.user, let authToken = user.authToken {
-            headers = ["Authorization": authToken]
+        
+        if LoginKitConfig.authType == AuthType.JWT {
+            if let user = self.user, let authToken = user.authToken {
+                headers = ["Authorization": authToken]
+            }
         }
-
+        
+        // Due to issues with redirects, the HTTP Authorization headers need to be manually built.
+        if LoginKitConfig.authType == AuthType.Basic {
+            if let username = self.user?.username, let password = self.user?.password {
+                let loginString = NSString(format: "%@:%@", username, password)
+                let loginData: NSData = loginString.dataUsingEncoding(NSUTF8StringEncoding)!
+                let base64LoginString = loginData.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.Encoding64CharacterLineLength)
+                headers = ["Authorization": "Basic \(base64LoginString)"]
+            }
+        }
+        
         var request = manager.request(method, location, parameters: parameters, encoding: .JSON, headers: headers).validate()
 
-        if let username = self.user?.username, let password = self.user?.password {
-            request = request.authenticate(user: username, password: password)
-        }
+//        if let username = self.user?.username, let password = self.user?.password {
+//            request = request.authenticate(user: username, password: password)
+//        }
 
         request.responseJSON { response in
             var message: String?
@@ -76,8 +106,13 @@ public class LoginServices {
             } else {
                 // If the token expires
                 if response.response?.statusCode == 401 && request.request!.HTTPMethod == "GET" {
-                    logoff = true
-                    message = "Your session has expired. Please log in again."
+                    if LoginKitConfig.authType == AuthType.JWT {
+                        logoff = true
+                        // FIXME: This is showing up for invalid logins on Basic Auth - use more reliable method
+                        message = "Your session has expired. Please log in again."
+                    } else {
+                        message = "Your login details are incorrect."
+                    }
                     // If session expired, cancel all network requests
                     self.cancelRequests()
                 } else if response.response?.statusCode == 401 && request.request!.HTTPMethod == "POST" {
