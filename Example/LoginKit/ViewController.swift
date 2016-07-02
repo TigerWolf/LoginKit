@@ -18,8 +18,9 @@ class ViewController: UIViewController {
     override func viewDidAppear(animated: Bool) {
 
         // Setup
-        LoginKitConfig.url = "https://private-5855a-loginkit.apiary-mock.com/token"
-        LoginKitConfig.destination = = { ()-> UIViewController in PrivateController() }
+        LoginKitConfig.url = "https://private-5855a-loginkit.apiary-mock.com/"
+        LoginKitConfig.loginPath = "token"
+        LoginKitConfig.destination = { () -> UIViewController in PrivateController() }
         LoginKitConfig.logoImage = UIImage(named: "logo") ?? UIImage()
 
         Appearance.backgroundColor = UIColor(red: 0.46, green: 0.70, blue: 0.93, alpha: 1.0)
