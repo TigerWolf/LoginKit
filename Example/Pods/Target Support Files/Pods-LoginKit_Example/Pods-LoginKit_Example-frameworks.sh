@@ -16,7 +16,7 @@ install_framework()
     local source="$1"
   fi
 
-  local destination="${CONFIGURATION_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}"
+  local destination="${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}"
 
   if [ -L "${source}" ]; then
       echo "Symlinked..."
@@ -59,8 +59,8 @@ code_sign_if_enabled() {
   if [ -n "${EXPANDED_CODE_SIGN_IDENTITY}" -a "${CODE_SIGNING_REQUIRED}" != "NO" -a "${CODE_SIGNING_ALLOWED}" != "NO" ]; then
     # Use the current code_sign_identitiy
     echo "Code Signing $1 with Identity ${EXPANDED_CODE_SIGN_IDENTITY_NAME}"
-    echo "/usr/bin/codesign --force --sign ${EXPANDED_CODE_SIGN_IDENTITY} --preserve-metadata=identifier,entitlements \"$1\""
-    /usr/bin/codesign --force --sign ${EXPANDED_CODE_SIGN_IDENTITY} --preserve-metadata=identifier,entitlements "$1"
+    echo "/usr/bin/codesign --force --sign ${EXPANDED_CODE_SIGN_IDENTITY} ${OTHER_CODE_SIGN_FLAGS} --preserve-metadata=identifier,entitlements \"$1\""
+    /usr/bin/codesign --force --sign ${EXPANDED_CODE_SIGN_IDENTITY} ${OTHER_CODE_SIGN_FLAGS} --preserve-metadata=identifier,entitlements "$1"
   fi
 }
 
@@ -84,16 +84,18 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "Pods-LoginKit_Example/Alamofire.framework"
-  install_framework "Pods-LoginKit_Example/KeychainAccess.framework"
-  install_framework "Pods-LoginKit_Example/LoginKit.framework"
-  install_framework "Pods-LoginKit_Example/SVProgressHUD.framework"
-  install_framework "Pods-LoginKit_Example/SwiftyJSON.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Alamofire-iOS8.3/Alamofire.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/IQKeyboardManagerSwift-iOS8.3/IQKeyboardManagerSwift.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/KeychainAccess-iOS8.3/KeychainAccess.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/LoginKit-iOS8.3/LoginKit.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/SVProgressHUD-iOS8.3/SVProgressHUD.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/SwiftyJSON-iOS8.3/SwiftyJSON.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "Pods-LoginKit_Example/Alamofire.framework"
-  install_framework "Pods-LoginKit_Example/KeychainAccess.framework"
-  install_framework "Pods-LoginKit_Example/LoginKit.framework"
-  install_framework "Pods-LoginKit_Example/SVProgressHUD.framework"
-  install_framework "Pods-LoginKit_Example/SwiftyJSON.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Alamofire-iOS8.3/Alamofire.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/IQKeyboardManagerSwift-iOS8.3/IQKeyboardManagerSwift.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/KeychainAccess-iOS8.3/KeychainAccess.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/LoginKit-iOS8.3/LoginKit.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/SVProgressHUD-iOS8.3/SVProgressHUD.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/SwiftyJSON-iOS8.3/SwiftyJSON.framework"
 fi

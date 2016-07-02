@@ -16,7 +16,7 @@ install_framework()
     local source="$1"
   fi
 
-  local destination="${CONFIGURATION_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}"
+  local destination="${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}"
 
   if [ -L "${source}" ]; then
       echo "Symlinked..."
@@ -59,8 +59,8 @@ code_sign_if_enabled() {
   if [ -n "${EXPANDED_CODE_SIGN_IDENTITY}" -a "${CODE_SIGNING_REQUIRED}" != "NO" -a "${CODE_SIGNING_ALLOWED}" != "NO" ]; then
     # Use the current code_sign_identitiy
     echo "Code Signing $1 with Identity ${EXPANDED_CODE_SIGN_IDENTITY_NAME}"
-    echo "/usr/bin/codesign --force --sign ${EXPANDED_CODE_SIGN_IDENTITY} --preserve-metadata=identifier,entitlements \"$1\""
-    /usr/bin/codesign --force --sign ${EXPANDED_CODE_SIGN_IDENTITY} --preserve-metadata=identifier,entitlements "$1"
+    echo "/usr/bin/codesign --force --sign ${EXPANDED_CODE_SIGN_IDENTITY} ${OTHER_CODE_SIGN_FLAGS} --preserve-metadata=identifier,entitlements \"$1\""
+    /usr/bin/codesign --force --sign ${EXPANDED_CODE_SIGN_IDENTITY} ${OTHER_CODE_SIGN_FLAGS} --preserve-metadata=identifier,entitlements "$1"
   fi
 }
 
@@ -84,20 +84,22 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "Pods-LoginKit_Tests/Alamofire.framework"
-  install_framework "Pods-LoginKit_Tests/KeychainAccess.framework"
-  install_framework "Pods-LoginKit_Tests/LoginKit.framework"
-  install_framework "Pods-LoginKit_Tests/SVProgressHUD.framework"
-  install_framework "Pods-LoginKit_Tests/SwiftyJSON.framework"
-  install_framework "Pods-LoginKit_Tests/Nimble.framework"
-  install_framework "Pods-LoginKit_Tests/Quick.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Alamofire-iOS9.2/Alamofire.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/IQKeyboardManagerSwift-iOS9.2/IQKeyboardManagerSwift.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/KeychainAccess-iOS9.2/KeychainAccess.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/LoginKit-iOS9.2/LoginKit.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/SVProgressHUD-iOS9.2/SVProgressHUD.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/SwiftyJSON-iOS9.2/SwiftyJSON.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Nimble/Nimble.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Quick/Quick.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "Pods-LoginKit_Tests/Alamofire.framework"
-  install_framework "Pods-LoginKit_Tests/KeychainAccess.framework"
-  install_framework "Pods-LoginKit_Tests/LoginKit.framework"
-  install_framework "Pods-LoginKit_Tests/SVProgressHUD.framework"
-  install_framework "Pods-LoginKit_Tests/SwiftyJSON.framework"
-  install_framework "Pods-LoginKit_Tests/Nimble.framework"
-  install_framework "Pods-LoginKit_Tests/Quick.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Alamofire-iOS9.2/Alamofire.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/IQKeyboardManagerSwift-iOS9.2/IQKeyboardManagerSwift.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/KeychainAccess-iOS9.2/KeychainAccess.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/LoginKit-iOS9.2/LoginKit.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/SVProgressHUD-iOS9.2/SVProgressHUD.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/SwiftyJSON-iOS9.2/SwiftyJSON.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Nimble/Nimble.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Quick/Quick.framework"
 fi
