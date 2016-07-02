@@ -5,6 +5,8 @@
 
 * Follow redirections on Authentication
 * Add button border customization
+* Add SPM support
+* Update Example project
 
 0.0.3
 -------
