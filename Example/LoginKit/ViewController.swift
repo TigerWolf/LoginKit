@@ -18,15 +18,16 @@ class ViewController: UIViewController {
     override func viewDidAppear(animated: Bool) {
 
         // Setup
-        LoginKitConfig.url = "https://private-5855a-loginkit.apiary-mock.com/"
+        LoginKitConfig.url = "http://private-5855a-loginkit.apiary-mock.com/"
         LoginKitConfig.loginPath = "token"
         LoginKitConfig.destination = { () -> UIViewController in PrivateController() }
         LoginKitConfig.logoImage = UIImage(named: "logo") ?? UIImage()
 
         Appearance.backgroundColor = UIColor(red: 0.46, green: 0.70, blue: 0.93, alpha: 1.0)
 
-        let login_screen = LoginKit.loginScreenController() as! LoginController
-        self.presentViewController(login_screen, animated: animated,completion: nil)
+        let loginScreen = LoginKit.loginScreenController()
+//        let loginScreen = RegistrationController()
+        self.presentViewController(loginScreen, animated: animated,completion: nil)
     }
 
     override func didReceiveMemoryWarning() {

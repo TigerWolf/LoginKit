@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		708A107096874032C0D57122 /* Pods_LoginKitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 969E93AD93640E04DCDAC8C1 /* Pods_LoginKitTests.framework */; };
+		BA0527821D32505100E55215 /* AuthJWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0527811D32505100E55215 /* AuthJWT.swift */; };
+		BA0527841D344FBC00E55215 /* AuthBasic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0527831D344FBC00E55215 /* AuthBasic.swift */; };
+		BA2793481D30C737009D0483 /* StubbedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2793471D30C737009D0483 /* StubbedTests.swift */; };
 		BA9A834E1C777805001F4162 /* LoginKit.h in Headers */ = {isa = PBXBuildFile; fileRef = BA9A834D1C777805001F4162 /* LoginKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BA9A83551C777805001F4162 /* LoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA9A834A1C777805001F4162 /* LoginKit.framework */; };
 		BA9A835A1C777805001F4162 /* LoginKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9A83591C777805001F4162 /* LoginKitTests.swift */; };
@@ -18,7 +21,8 @@
 		BA9A83701C777ECC001F4162 /* LoginKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9A836A1C777ECC001F4162 /* LoginKit.swift */; };
 		BA9A83711C777ECC001F4162 /* LoginServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9A836B1C777ECC001F4162 /* LoginServices.swift */; };
 		BA9A83731C778019001F4162 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9A83721C778019001F4162 /* User.swift */; };
-		BA9A83751C77812E001F4162 /* Test2.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9A83741C77812E001F4162 /* Test2.swift */; };
+		BA9A83751C77812E001F4162 /* MainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9A83741C77812E001F4162 /* MainTests.swift */; };
+		BACB3B621D2AB4C000146EA5 /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BACB3B611D2AB4C000146EA5 /* RegistrationController.swift */; };
 		EE60FC48AEBF35E1DCF7E63C /* Pods_LoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83AD09510C66772C9ED5F825 /* Pods_LoginKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +43,9 @@
 		83AD09510C66772C9ED5F825 /* Pods_LoginKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LoginKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		969E93AD93640E04DCDAC8C1 /* Pods_LoginKitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LoginKitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		97D75A3FB3264DCF11AFD310 /* Pods-LoginKitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoginKitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LoginKitTests/Pods-LoginKitTests.debug.xcconfig"; sourceTree = "<group>"; };
+		BA0527811D32505100E55215 /* AuthJWT.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthJWT.swift; sourceTree = "<group>"; };
+		BA0527831D344FBC00E55215 /* AuthBasic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthBasic.swift; sourceTree = "<group>"; };
+		BA2793471D30C737009D0483 /* StubbedTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StubbedTests.swift; sourceTree = "<group>"; };
 		BA9A834A1C777805001F4162 /* LoginKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LoginKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA9A834D1C777805001F4162 /* LoginKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginKit.h; sourceTree = "<group>"; };
 		BA9A834F1C777805001F4162 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -52,7 +59,8 @@
 		BA9A836A1C777ECC001F4162 /* LoginKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginKit.swift; sourceTree = "<group>"; };
 		BA9A836B1C777ECC001F4162 /* LoginServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginServices.swift; sourceTree = "<group>"; };
 		BA9A83721C778019001F4162 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
-		BA9A83741C77812E001F4162 /* Test2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test2.swift; sourceTree = "<group>"; };
+		BA9A83741C77812E001F4162 /* MainTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTests.swift; sourceTree = "<group>"; };
+		BACB3B611D2AB4C000146EA5 /* RegistrationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,11 +122,14 @@
 				BA9A83661C777ECC001F4162 /* AppearanceController.swift */,
 				BA9A83671C777ECC001F4162 /* Configuration.swift */,
 				BA9A83681C777ECC001F4162 /* LoginController.swift */,
+				BACB3B611D2AB4C000146EA5 /* RegistrationController.swift */,
 				BA9A83691C777ECC001F4162 /* LoginKit.bundle */,
 				BA9A836A1C777ECC001F4162 /* LoginKit.swift */,
 				BA9A836B1C777ECC001F4162 /* LoginServices.swift */,
 				BA9A834D1C777805001F4162 /* LoginKit.h */,
 				BA9A834F1C777805001F4162 /* Info.plist */,
+				BA0527811D32505100E55215 /* AuthJWT.swift */,
+				BA0527831D344FBC00E55215 /* AuthBasic.swift */,
 			);
 			path = LoginKit;
 			sourceTree = "<group>";
@@ -128,7 +139,8 @@
 			children = (
 				BA9A83591C777805001F4162 /* LoginKitTests.swift */,
 				BA9A835B1C777805001F4162 /* Info.plist */,
-				BA9A83741C77812E001F4162 /* Test2.swift */,
+				BA9A83741C77812E001F4162 /* MainTests.swift */,
+				BA2793471D30C737009D0483 /* StubbedTests.swift */,
 			);
 			path = LoginKitTests;
 			sourceTree = "<group>";
@@ -160,12 +172,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BA9A835E1C777805001F4162 /* Build configuration list for PBXNativeTarget "LoginKit" */;
 			buildPhases = (
-				BD7F068D4C9ABBDBCFBEB177 /* 📦 Check Pods Manifest.lock */,
+				BD7F068D4C9ABBDBCFBEB177 /* [CP] Check Pods Manifest.lock */,
 				BA9A83451C777805001F4162 /* Sources */,
 				BA9A83461C777805001F4162 /* Frameworks */,
 				BA9A83471C777805001F4162 /* Headers */,
 				BA9A83481C777805001F4162 /* Resources */,
-				90F35F79D3990DB2D64E1970 /* 📦 Copy Pods Resources */,
+				90F35F79D3990DB2D64E1970 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -180,12 +192,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BA9A83611C777805001F4162 /* Build configuration list for PBXNativeTarget "LoginKitTests" */;
 			buildPhases = (
-				7CFED40539FF1E1245E0A955 /* 📦 Check Pods Manifest.lock */,
+				7CFED40539FF1E1245E0A955 /* [CP] Check Pods Manifest.lock */,
 				BA9A83501C777805001F4162 /* Sources */,
 				BA9A83511C777805001F4162 /* Frameworks */,
 				BA9A83521C777805001F4162 /* Resources */,
-				7421FD2C59C67C0B0DFE4668 /* 📦 Embed Pods Frameworks */,
-				4B1652F91D59213E11FE4915 /* 📦 Copy Pods Resources */,
+				7421FD2C59C67C0B0DFE4668 /* [CP] Embed Pods Frameworks */,
+				4B1652F91D59213E11FE4915 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -252,14 +264,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4B1652F91D59213E11FE4915 /* 📦 Copy Pods Resources */ = {
+		4B1652F91D59213E11FE4915 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -267,14 +279,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LoginKitTests/Pods-LoginKitTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7421FD2C59C67C0B0DFE4668 /* 📦 Embed Pods Frameworks */ = {
+		7421FD2C59C67C0B0DFE4668 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -282,14 +294,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LoginKitTests/Pods-LoginKitTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7CFED40539FF1E1245E0A955 /* 📦 Check Pods Manifest.lock */ = {
+		7CFED40539FF1E1245E0A955 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -297,14 +309,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		90F35F79D3990DB2D64E1970 /* 📦 Copy Pods Resources */ = {
+		90F35F79D3990DB2D64E1970 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -312,14 +324,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LoginKit/Pods-LoginKit-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		BD7F068D4C9ABBDBCFBEB177 /* 📦 Check Pods Manifest.lock */ = {
+		BD7F068D4C9ABBDBCFBEB177 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -334,12 +346,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA0527841D344FBC00E55215 /* AuthBasic.swift in Sources */,
+				BACB3B621D2AB4C000146EA5 /* RegistrationController.swift in Sources */,
 				BA9A836D1C777ECC001F4162 /* Configuration.swift in Sources */,
 				BA9A83701C777ECC001F4162 /* LoginKit.swift in Sources */,
 				BA9A83731C778019001F4162 /* User.swift in Sources */,
 				BA9A836E1C777ECC001F4162 /* LoginController.swift in Sources */,
 				BA9A836C1C777ECC001F4162 /* AppearanceController.swift in Sources */,
 				BA9A83711C777ECC001F4162 /* LoginServices.swift in Sources */,
+				BA0527821D32505100E55215 /* AuthJWT.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,7 +362,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA9A83751C77812E001F4162 /* Test2.swift in Sources */,
+				BA2793481D30C737009D0483 /* StubbedTests.swift in Sources */,
+				BA9A83751C77812E001F4162 /* MainTests.swift in Sources */,
 				BA9A835A1C777805001F4162 /* LoginKitTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
