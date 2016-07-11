@@ -21,8 +21,8 @@ public class User: NSObject, NSCoding {
             }
         }
     }
-
-    let keychain = Keychain(service: NSBundle.mainBundle().bundleIdentifier!)
+    
+    let keychain = Keychain(service: NSBundle.mainBundle().bundleIdentifier ?? "com.loginkit.keychain")
 
     var authToken: String? {
         didSet {
