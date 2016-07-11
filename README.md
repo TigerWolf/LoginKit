@@ -50,8 +50,8 @@ LoginKitConfig.url = "https://example.com/token"
 LoginKitConfig.destination = = { ()-> UIViewController in PrivateController() }
 
 // Load the login screen
-let login_screen = LoginKit.loginScreenController() as! LoginController
-self.presentViewController(login_screen, animated: false,completion: nil)
+let loginScreen = LoginKit.loginScreenController()
+self.presentViewController(loginScreen, animated: false,completion: nil)
 ```
 
 ## Customization
