@@ -39,8 +39,8 @@ public class LoginController: UIViewController {
         self.savePasswordButton.setTitle("Save login", forState: .Normal)
 
         // Get bundle image
-        let normalImage = UIImage(named: "LoginKit.bundle/images/icon_unchecked", inBundle: LoginKit.getBundle(), compatibleWithTraitCollection: nil) ?? UIImage()
-        let selectedImage = UIImage(named: "LoginKit.bundle/images/icon_checked", inBundle: LoginKit.getBundle(), compatibleWithTraitCollection: nil) ?? UIImage()
+        let normalImage = UIImage(named: "LoginKit.bundle/images/icon_unchecked", inBundle: LoginKit.bundle(), compatibleWithTraitCollection: nil) ?? UIImage()
+        let selectedImage = UIImage(named: "LoginKit.bundle/images/icon_checked", inBundle: LoginKit.bundle(), compatibleWithTraitCollection: nil) ?? UIImage()
 
         
         self.savePasswordButton.setImage(normalImage, forState: .Normal)
@@ -84,6 +84,8 @@ public class LoginController: UIViewController {
     }
 
     public override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
         if let user = LoginService.user {
             // Password is saved
             if user.authToken != nil {
