@@ -10,8 +10,10 @@ target 'LoginKit' do
 end
 
 target 'LoginKitTests' do
-    pod 'Quick', '~> 0.8.0'
-    pod 'Nimble', '3.0.0'
+    pod 'Quick', '~> 0.9.0'
+    pod 'Nimble', '4.0.0'
+    pod 'OHHTTPStubs'
+    pod 'OHHTTPStubs/Swift'
     pod 'LoginKit', :path => '.'
 end
 
