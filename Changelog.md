@@ -1,12 +1,17 @@
 # Changelog
 
+0.0.5
+-------
+
 0.0.4
 -------
 
 * Follow redirections on Authentication
-* Add button border customization
+* Add button border customisation
 * Add SPM support
 * Update Example project
+* Improve method names to make library more idiomatic
+* Remove SwiftyJSON dependency
 
 0.0.3
 -------

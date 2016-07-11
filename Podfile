@@ -4,7 +4,6 @@ use_frameworks!
 target 'LoginKit' do
   pod 'Alamofire', '~> 3.0'
   pod 'SVProgressHUD'
-  pod 'SwiftyJSON'
   pod 'KeychainAccess'
   pod 'IQKeyboardManagerSwift'
 end
@@ -16,4 +15,3 @@ target 'LoginKitTests' do
     pod 'OHHTTPStubs/Swift'
     pod 'LoginKit', :path => '.'
 end
-

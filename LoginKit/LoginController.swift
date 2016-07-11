@@ -1,6 +1,5 @@
 import UIKit
 import SVProgressHUD
-import SwiftyJSON
 
 /**
  This LoginController displays a configurable login screen that is used by the rest
@@ -90,6 +89,8 @@ public class LoginController: UIViewController {
             // Password is saved
             if user.authToken != nil {
                 openDestination()
+            } else {
+                NSLog("ERROR")
             }
         }
         if let password = LoginService.user?.password, let username = LoginService.user?.username where
@@ -207,12 +208,15 @@ public class LoginController: UIViewController {
     }
 
     func saveToken(result: AnyObject) {
-
-        var json = JSON(result)
+       
+        guard let token = result["token"] as? String
+        else {
+            return;
+        }
 
         let user = User(id: username.text!, username: username.text!)
         user.clearToken()
-        user.authToken = json["token"].stringValue
+        user.authToken = token
 
         LoginService.user = user
 

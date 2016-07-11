@@ -44,6 +44,5 @@ Pod::Spec.new do |s|
   s.dependency 'Alamofire', '~> 3.0'
   s.dependency 'SVProgressHUD'
   s.dependency 'KeychainAccess'
-  s.dependency 'SwiftyJSON'
   s.dependency 'IQKeyboardManagerSwift'
 end
