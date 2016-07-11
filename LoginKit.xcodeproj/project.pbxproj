@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		708A107096874032C0D57122 /* Pods_LoginKitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 969E93AD93640E04DCDAC8C1 /* Pods_LoginKitTests.framework */; };
-		BA0527821D32505100E55215 /* AuthJWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0527811D32505100E55215 /* AuthJWT.swift */; };
-		BA0527841D344FBC00E55215 /* AuthBasic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0527831D344FBC00E55215 /* AuthBasic.swift */; };
 		BA2793481D30C737009D0483 /* StubbedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2793471D30C737009D0483 /* StubbedTests.swift */; };
 		BA9A834E1C777805001F4162 /* LoginKit.h in Headers */ = {isa = PBXBuildFile; fileRef = BA9A834D1C777805001F4162 /* LoginKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BA9A83551C777805001F4162 /* LoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA9A834A1C777805001F4162 /* LoginKit.framework */; };
@@ -43,8 +41,6 @@
 		83AD09510C66772C9ED5F825 /* Pods_LoginKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LoginKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		969E93AD93640E04DCDAC8C1 /* Pods_LoginKitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LoginKitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		97D75A3FB3264DCF11AFD310 /* Pods-LoginKitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoginKitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LoginKitTests/Pods-LoginKitTests.debug.xcconfig"; sourceTree = "<group>"; };
-		BA0527811D32505100E55215 /* AuthJWT.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthJWT.swift; sourceTree = "<group>"; };
-		BA0527831D344FBC00E55215 /* AuthBasic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthBasic.swift; sourceTree = "<group>"; };
 		BA2793471D30C737009D0483 /* StubbedTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StubbedTests.swift; sourceTree = "<group>"; };
 		BA9A834A1C777805001F4162 /* LoginKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LoginKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA9A834D1C777805001F4162 /* LoginKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginKit.h; sourceTree = "<group>"; };
@@ -128,8 +124,6 @@
 				BA9A836B1C777ECC001F4162 /* LoginServices.swift */,
 				BA9A834D1C777805001F4162 /* LoginKit.h */,
 				BA9A834F1C777805001F4162 /* Info.plist */,
-				BA0527811D32505100E55215 /* AuthJWT.swift */,
-				BA0527831D344FBC00E55215 /* AuthBasic.swift */,
 			);
 			path = LoginKit;
 			sourceTree = "<group>";
@@ -346,7 +340,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA0527841D344FBC00E55215 /* AuthBasic.swift in Sources */,
 				BACB3B621D2AB4C000146EA5 /* RegistrationController.swift in Sources */,
 				BA9A836D1C777ECC001F4162 /* Configuration.swift in Sources */,
 				BA9A83701C777ECC001F4162 /* LoginKit.swift in Sources */,
@@ -354,7 +347,6 @@
 				BA9A836E1C777ECC001F4162 /* LoginController.swift in Sources */,
 				BA9A836C1C777ECC001F4162 /* AppearanceController.swift in Sources */,
 				BA9A83711C777ECC001F4162 /* LoginServices.swift in Sources */,
-				BA0527821D32505100E55215 /* AuthJWT.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
