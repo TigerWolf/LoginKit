@@ -3,7 +3,7 @@ import Alamofire
 
 public let LoginService = LoginServices.sharedInstance
 
-public class LoginServices {
+public class LoginServices: NSObject {
 
     public static let sharedInstance = LoginServices()
     
@@ -34,7 +34,7 @@ public class LoginServices {
 
     var storePassword = false
 
-    private init() {
+    private override init() {
         if let appDir = self.appDir, user = NSKeyedUnarchiver.unarchiveObjectWithFile(appDir + "/user") as? User {
             self.user = user
         }
@@ -69,96 +69,22 @@ public class LoginServices {
 
     public func request(method: Alamofire.Method, _ path: String, parameters: [String: AnyObject]? = nil) -> Alamofire.Request {
         
-        let location = LoginKitConfig.url + path
-
         let manager = Alamofire.Manager.sharedInstance
-
-        var headers = [String: String]()
+        
+        let location = LoginKitConfig.url + path
+        
+//        var request = manager.request(method, location, parameters: parameters, encoding: .JSON, headers: headers).validate()
+        var request: Request
+        
+        
+        if LoginKitConfig.authType == AuthType.Basic {
+            request = AuthBasic().request(manager)
+        }
         
         if LoginKitConfig.authType == AuthType.JWT {
-            if let user = self.user, let authToken = user.authToken {
-                headers = ["Authorization": authToken]
-            }
+            request = AuthJWT().request(manager)
         }
         
-        // Due to issues with redirects, the HTTP Authorization headers need to be manually built.
-        if LoginKitConfig.authType == AuthType.Basic {
-            if let username = self.user?.username, let password = self.user?.password {
-                let loginString = NSString(format: "%@:%@", username, password)
-                let loginData: NSData = loginString.dataUsingEncoding(NSUTF8StringEncoding)!
-                let base64LoginString = loginData.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.Encoding64CharacterLineLength)
-                headers = ["Authorization": "Basic \(base64LoginString)"]
-            }
-        }
-        
-        let request = manager.request(method, location, parameters: parameters, encoding: .JSON, headers: headers).validate()
-
-        request.responseJSON { response in
-            var message: String? = "Unexpected error, please try again later."
-            var logoff = false
-
-            if response.result.isSuccess {
-                // Success is handled in seperate implementations
-                message = nil
-            } else {
-                // If the token expires
-                if response.response?.statusCode == 401 && request.request!.HTTPMethod == "GET" {
-                    if LoginKitConfig.authType == AuthType.JWT {
-                        logoff = true
-                        message = "Your session has expired. Please log in again."
-                    } else {
-                        message = "Your login details are incorrect."
-                    }
-                    // If session expired, cancel all network requests
-                    self.cancelRequests()
-                } else if response.response?.statusCode == 401 && request.request!.HTTPMethod == "POST" {
-                    logoff = false
-                    message = "Your login details are incorrect."
-
-                    // If session expired, cancel all network requests
-                    self.cancelRequests()
-                } else if response.response?.statusCode == 404 {
-                    message = "Could not connect to server"
-                } else if response.response?.statusCode == 500 {
-                    // If the request fails, then check if the connection is open
-                    message = "Internal server error, please try again later."
-                } else if response.response == nil {
-                    if LoginKitConfig.authType == AuthType.Basic {
-                        // This looks like hacky way to do it - why return -999 Cancelled?
-                        logoff = true
-                        message = "Your login details are incorrect."
-                    }
-                } else if response.response?.statusCode == nil {
-                    // Cancelled requests have no status code
-                    if response.result.error!.code == NSURLErrorCancelled {
-                        // No need to handle this, no message required
-                        message = nil
-                    } else {
-                        message = "Unexpected error, please try again later."
-                    }
-                } else {
-                    message = "Unexpected error, please try again later."
-                }
-            }
-
-            if let message = message {
-                let alert = UIAlertController(title: "Error", message: message, preferredStyle: UIAlertControllerStyle.Alert)
-                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { action in action.style
-                    if logoff == true {
-                        NSLog("Logoff")
-                        self.logoff()
-                    }
-                }))
-
-
-                // TODO: Use new method
-                if let viewController = self.getTopViewController() {
-                    viewController.presentViewController(alert, animated: true, completion: nil)
-                }
-            }
-
-        }
-
         return request
     }
 
@@ -180,7 +106,7 @@ public class LoginServices {
         self.user = nil
     }
 
-    func getTopViewController() -> UIViewController? {
+    func topViewController() -> UIViewController? {
         if var topController = UIApplication.sharedApplication().keyWindow?.rootViewController {
             while let presentedViewController = topController.presentedViewController {
                 topController = presentedViewController
