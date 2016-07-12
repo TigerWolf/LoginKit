@@ -5,7 +5,7 @@ import SVProgressHUD
  This LoginController displays a configurable login screen that is used by the rest
  of the library.
  */
-public class LoginController: UIViewController {
+public class LoginController: UIViewController, UITextFieldDelegate {
 
     var centerCoords: CGFloat {
         return (self.view.frame.size.width/2) - (235/2)
@@ -22,6 +22,9 @@ public class LoginController: UIViewController {
      */
     override public func viewDidLoad() {
         super.viewDidLoad()
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(LoginController.stopEditing))
+        view.addGestureRecognizer(tap)
 
         let logoHeader = header()
         view.addSubview(logoHeader)
@@ -29,7 +32,10 @@ public class LoginController: UIViewController {
         view.backgroundColor = Appearance.backgroundColor
 
         self.username = buildField("Username", top: 250)
+        self.username.returnKeyType = .Next
         self.password = buildField("Password", top: 320)
+        self.password.returnKeyType = .Go
+
         self.password.secureTextEntry = true
         self.view.addSubview(self.username)
         self.view.addSubview(self.password)
@@ -130,6 +136,7 @@ public class LoginController: UIViewController {
     func buildField(name: String, top: CGFloat) -> UITextField {
         let field = UITextField()
         field.sizeToFit()
+        field.delegate = self
         let placeholderText = name
         let attrs = [NSForegroundColorAttributeName: UIColor.grayColor()]
         let placeholderString = NSMutableAttributedString(string: placeholderText, attributes: attrs)
@@ -145,6 +152,19 @@ public class LoginController: UIViewController {
         field.autoresizingMask = [.FlexibleLeftMargin, .FlexibleRightMargin]
 
         return field
+    }
+    
+    public func textFieldShouldReturn(textField: UITextField) -> Bool {
+        
+        if (textField == self.username) {
+            self.password.becomeFirstResponder()
+        }
+        
+        if (textField == self.password) {
+            self.performLogin(nil)
+        }
+        
+        return false // We do not want UITextField to insert line-breaks.
     }
 
     func performLogin(sender: UIButton!) {
@@ -222,11 +242,15 @@ public class LoginController: UIViewController {
 
         openDestination()
     }
-
-    func openDestination() {
-        
+    
+    func stopEditing(){
         self.username.resignFirstResponder()
         self.password.resignFirstResponder()
+    }
+
+    func openDestination() {
+        self.stopEditing()
+
         //        self.presentViewController(LoginService.destination, animated: true, completion: nil)
 
         // This could probably be done better - issue with being a framework and not having access to AppDelegate

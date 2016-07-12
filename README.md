@@ -64,6 +64,7 @@ Appearance.backgroundColor = UIColor(red: 0.46, green: 0.70, blue: 0.93, alpha: 
 LoginKitConfig.logoImage = UIImage(named: "logo") ?? UIImage()
 ```
 
+If you would like better control over tabbing between fields in your app, I would recommend `IQKeyboardManagerSwift`. This is a drop in library to add some useful features.
 
 ## Autentication
 

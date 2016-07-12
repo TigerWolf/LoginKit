@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "LoginKit"
-  s.version          = "0.0.4"
+  s.version          = "0.0.5"
   s.summary          = "LoginKit is a framework to help with creating a login screen."
 
 # This description is used to generate tags and improve search results.
@@ -44,5 +44,4 @@ Pod::Spec.new do |s|
   s.dependency 'Alamofire', '~> 3.0'
   s.dependency 'SVProgressHUD'
   s.dependency 'KeychainAccess'
-  s.dependency 'IQKeyboardManagerSwift'
 end

@@ -3,6 +3,9 @@
 0.0.5
 -------
 
+* Remove IQKeyboardManagerSwift dependency
+* Make keyboard tab to next field on login screen
+
 0.0.4
 -------
 
