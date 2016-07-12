@@ -70,7 +70,6 @@ public class User: NSObject, NSCoding {
             let id = aDecoder.decodeObjectForKey("id") as? String {
                 self.id = id
                 self.username = username
-
         } else {
             self.id = ""
             self.username = ""
@@ -84,7 +83,7 @@ public class User: NSObject, NSCoding {
             NSLog("Failed to set password")
         }
 
-        if (LoginKitConfig.savedLogin == false){
+        if (LoginKitConfig.savedLogin == false) {
             do {
                 if let authToken = try keychain.get("authToken") {
                     self.authToken = authToken

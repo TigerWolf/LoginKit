@@ -55,14 +55,14 @@ public class LoginController: UIViewController, UITextFieldDelegate {
         self.view.addSubview(self.savePasswordButton)
         self.savePasswordButton.autoresizingMask = [.FlexibleLeftMargin, .FlexibleRightMargin]
         self.savePasswordButton.titleLabel?.font = self.password.font
-        self.savePasswordButton.frame = CGRectMake(
-            self.password.frame.minX,
-            self.password.frame.maxY + 3,
-            self.password.frame.width,
-            self.password.frame.height)
-        self.savePasswordButton.imageEdgeInsets = UIEdgeInsetsMake(0.0, self.savePasswordButton.frame.width - (normalImage.size.width + 32.0), 0.0, 0.0)
-        self.savePasswordButton.titleEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, 0.0, normalImage.size.width + 30)
-        if (LoginKitConfig.savedLogin == false){
+        self.savePasswordButton.frame = CGRect(
+            x: self.password.frame.minX,
+            y: self.password.frame.maxY + 3,
+            width: self.password.frame.width,
+            height: self.password.frame.height)
+        self.savePasswordButton.imageEdgeInsets = UIEdgeInsets(top: 0.0, left: self.savePasswordButton.frame.width - (normalImage.size.width + 32.0), bottom: 0.0, right: 0.0)
+        self.savePasswordButton.titleEdgeInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: normalImage.size.width + 30)
+        if LoginKitConfig.savedLogin == false {
             self.savePasswordButton.hidden = true
         }
 
@@ -77,9 +77,9 @@ public class LoginController: UIViewController, UITextFieldDelegate {
         login.layer.borderWidth = 1.0
         login.backgroundColor = Appearance.buttonColor
         if LoginKitConfig.savedLogin == true {
-            login.frame = CGRectMake(centerCoords, self.savePasswordButton.frame.maxY + 3, 235, 50)
+            login.frame = CGRect(x: centerCoords, y: self.savePasswordButton.frame.maxY + 3, width: 235, height: 50)
         } else {
-            login.frame = CGRectMake(centerCoords, self.password.frame.maxY + 20, 235, 50)
+            login.frame = CGRect(x: centerCoords, y: self.password.frame.maxY + 20, width: 235, height: 50)
         }
         login.addTarget(self,
             action: #selector(LoginController.performLogin(_:)),
@@ -99,9 +99,8 @@ public class LoginController: UIViewController, UITextFieldDelegate {
                 NSLog("ERROR")
             }
         }
-        if let password = LoginService.user?.password, let username = LoginService.user?.username where
-            password.characters.count > 0 && username.characters.count > 0
-        {
+        if let password = LoginService.user?.password, let username = LoginService.user?.username
+            where password.characters.count > 0 && username.characters.count > 0 {
             openDestination()
         }
     }
@@ -117,7 +116,7 @@ public class LoginController: UIViewController, UITextFieldDelegate {
 
     func header() -> UIView {
         let view: UIView = UIView()
-        view.frame = CGRectMake(0, 0, self.view.frame.size.width, 200)
+        view.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 200)
         let myImage = LoginKitConfig.logoImage
         let imageView = UIImageView(image: myImage)
 
@@ -143,7 +142,7 @@ public class LoginController: UIViewController, UITextFieldDelegate {
         field.attributedPlaceholder = placeholderString
         let cord: CGFloat = 235
         let width: CGFloat = 50
-        field.frame = CGRectMake(centerCoords, top, cord, width)
+        field.frame = CGRect(x: centerCoords, y: top, width: cord, height: width)
         field.borderStyle = UITextBorderStyle.RoundedRect
 
         // Enhancements
@@ -156,11 +155,11 @@ public class LoginController: UIViewController, UITextFieldDelegate {
     
     public func textFieldShouldReturn(textField: UITextField) -> Bool {
         
-        if (textField == self.username) {
+        if textField == self.username {
             self.password.becomeFirstResponder()
         }
         
-        if (textField == self.password) {
+        if textField == self.password {
             self.performLogin(nil)
         }
         
@@ -243,7 +242,7 @@ public class LoginController: UIViewController, UITextFieldDelegate {
         openDestination()
     }
     
-    func stopEditing(){
+    func stopEditing() {
         self.username.resignFirstResponder()
         self.password.resignFirstResponder()
     }

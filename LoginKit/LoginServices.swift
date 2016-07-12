@@ -150,8 +150,6 @@ public class LoginServices {
                     }
                 }))
 
-
-                // TODO: Use new method
                 if let viewController = self.getTopViewController() {
                     viewController.presentViewController(alert, animated: true, completion: nil)
                 }

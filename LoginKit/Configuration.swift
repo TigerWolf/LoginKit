@@ -34,7 +34,8 @@ public class Configuration {
      The controller to display if the login is successful. This is a lambda to ensure that the code
      in the controller is not excecuted prematurely.
      */
-    public var destination: () -> (UIViewController) = { () -> UIViewController in UIViewController()}
+    public var destination: () -> (UIViewController) =
+        { () -> UIViewController in UIViewController()}
     
     /**
      Toggle savedLogin functionality
