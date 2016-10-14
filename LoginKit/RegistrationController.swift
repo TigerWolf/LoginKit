@@ -3,18 +3,15 @@
  for a new account that is used by the rest of the library.
  */
 public class RegistrationController: UIViewController {
-    
     var newUsername: UITextField = UITextField()
     var newPassword: UITextField = UITextField()
     var newPasswordConfirm: UITextField = UITextField()
-    
     var centerCoords: CGFloat {
         return (self.view.frame.size.width/2) - (235/2)
     }
     
     override public func viewDidLoad() {
         super.viewDidLoad()
-        
         view.backgroundColor = Appearance.backgroundColor
         
         self.newUsername = buildField("Username", top: 50)
