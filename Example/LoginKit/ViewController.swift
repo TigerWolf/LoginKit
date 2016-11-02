@@ -15,7 +15,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
     }
 
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
 
         // Setup
         LoginKitConfig.url = "http://private-5855a-loginkit.apiary-mock.com/"
@@ -27,7 +27,7 @@ class ViewController: UIViewController {
 
         let loginScreen = LoginKit.loginScreenController()
 //        let loginScreen = RegistrationController()
-        self.presentViewController(loginScreen, animated: animated,completion: nil)
+        self.present(loginScreen, animated: animated,completion: nil)
     }
 
     override func didReceiveMemoryWarning() {

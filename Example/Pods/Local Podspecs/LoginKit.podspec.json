@@ -1,6 +1,6 @@
 {
   "name": "LoginKit",
-  "version": "0.0.4",
+  "version": "0.1.1",
   "summary": "LoginKit is a framework to help with creating a login screen.",
   "description": "This library makes creating a login screen for your app simple by providing some helper methods and services\nthat you can easily add into your next iOS app. It currently support Basic Auth login scheme and JWT.",
   "homepage": "https://github.com/TigerWolf/LoginKit",
@@ -10,10 +10,10 @@
   },
   "source": {
     "git": "https://github.com/TigerWolf/LoginKit.git",
-    "tag": "0.0.4"
+    "tag": "0.1.1"
   },
   "platforms": {
-    "ios": "8.0"
+    "ios": "9.0"
   },
   "requires_arc": true,
   "source_files": "LoginKit/**/*.{h,swift}",
@@ -21,18 +21,12 @@
   "frameworks": "UIKit",
   "dependencies": {
     "Alamofire": [
-      "~> 3.0"
+      "~> 4.0"
     ],
     "SVProgressHUD": [
 
     ],
     "KeychainAccess": [
-
-    ],
-    "SwiftyJSON": [
-
-    ],
-    "IQKeyboardManagerSwift": [
 
     ]
   }

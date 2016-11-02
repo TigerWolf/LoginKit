@@ -1,5 +1,6 @@
 source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
+platform :ios, '9.0'
 
 target 'LoginKit_Example' do
   pod 'LoginKit', :path => '../'
@@ -8,6 +9,6 @@ end
 target 'LoginKit_Tests' do
   pod 'LoginKit', :path => '../'
 
-  pod 'Quick', '~> 0.9.0'
-  pod 'Nimble', '4.0.0'
+  pod 'Quick'
+  pod 'Nimble'
 end
