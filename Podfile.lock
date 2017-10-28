@@ -1,33 +1,32 @@
 PODS:
-  - Alamofire (3.4.1)
-  - IQKeyboardManagerSwift (4.0.4)
-  - KeychainAccess (2.3.6)
-  - LoginKit (0.0.4):
-    - Alamofire (~> 3.0)
-    - IQKeyboardManagerSwift
+  - Alamofire (4.0.1)
+  - IQKeyboardManagerSwift (4.0.6)
+  - KeychainAccess (3.0.0)
+  - LoginKit (0.1.1):
+    - Alamofire (~> 4.0)
     - KeychainAccess
     - SVProgressHUD
   - Nimble (4.0.0)
-  - OHHTTPStubs (5.1.0):
-    - OHHTTPStubs/Default (= 5.1.0)
-  - OHHTTPStubs/Core (5.1.0)
-  - OHHTTPStubs/Default (5.1.0):
+  - OHHTTPStubs (5.2.1):
+    - OHHTTPStubs/Default (= 5.2.1)
+  - OHHTTPStubs/Core (5.2.1)
+  - OHHTTPStubs/Default (5.2.1):
     - OHHTTPStubs/Core
     - OHHTTPStubs/JSON
     - OHHTTPStubs/NSURLSession
     - OHHTTPStubs/OHPathHelpers
-  - OHHTTPStubs/JSON (5.1.0):
+  - OHHTTPStubs/JSON (5.2.1):
     - OHHTTPStubs/Core
-  - OHHTTPStubs/NSURLSession (5.1.0):
+  - OHHTTPStubs/NSURLSession (5.2.1):
     - OHHTTPStubs/Core
-  - OHHTTPStubs/OHPathHelpers (5.1.0)
-  - OHHTTPStubs/Swift (5.1.0):
+  - OHHTTPStubs/OHPathHelpers (5.2.1)
+  - OHHTTPStubs/Swift (5.2.1):
     - OHHTTPStubs/Core
-  - Quick (0.9.2)
+  - Quick (0.9.3)
   - SVProgressHUD (2.0.3)
 
 DEPENDENCIES:
-  - Alamofire (~> 3.0)
+  - Alamofire (~> 4.0)
   - IQKeyboardManagerSwift
   - KeychainAccess
   - LoginKit (from `.`)
@@ -42,15 +41,15 @@ EXTERNAL SOURCES:
     :path: "."
 
 SPEC CHECKSUMS:
-  Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
-  IQKeyboardManagerSwift: e0964d04d6a29b71016fd346dca13ecb80a2823a
-  KeychainAccess: 7f10e2ef998ddf954a64d5d608be08677774684d
-  LoginKit: 817009e350e3d84e89969ee781efb76ec650ddd8
+  Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
+  IQKeyboardManagerSwift: b3015e819559ca76381f87a0833f44d178564603
+  KeychainAccess: 412bf2650d9aebfc8135a58103b90ec38caad7f8
+  LoginKit: f8b0d0306f89894cff5b378cf92ca5c432ace963
   Nimble: 72bcc3e2f02242e6bfaaf8d9412ca7bfe3d8b417
-  OHHTTPStubs: 592f74439d2d72615115cf99a954237a3fbe26e5
-  Quick: 18d057bc66451eedd5d1c8dc99ba2a5db6e60226
+  OHHTTPStubs: 3a42f25c00563b71355ac73112ba2324e9e6cef4
+  Quick: 13a2a2b19a5d8e3ed4fd0c36ee46597fd77ebf71
   SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
 
-PODFILE CHECKSUM: 780ab2459ba992a82f3214c0879b5b5742fc947a
+PODFILE CHECKSUM: 665817c623c57daec876583878c55a3bf3336222
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.1.0.rc.3

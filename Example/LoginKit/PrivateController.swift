@@ -18,7 +18,7 @@ class PrivateController: UINavigationController {
 
         let vc = UITableViewController()
         vc.title = "Test"
-        vc.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logoff", style: .Plain, target: self, action: #selector(PrivateController.logout))
+        vc.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logoff", style: .plain, target: self, action: #selector(PrivateController.logout))
 
         self.viewControllers = [vc]
     }

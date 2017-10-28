@@ -1,13 +1,13 @@
 import Foundation
 import KeychainAccess
 
-public class User: NSObject, NSCoding {
+open class User: NSObject, NSCoding {
 
-    public let id: String
+    open let id: String
     let username: String
     var password: String? {
         didSet {
-            if LoginService.storePassword && LoginKitConfig.authType == AuthType.Basic {
+            if LoginService.storePassword && LoginKitConfig.authType == AuthType.basic {
                 // Store to keychain
                 if password != nil {
                     do {
@@ -22,13 +22,13 @@ public class User: NSObject, NSCoding {
         }
     }
     
-    let keychain = Keychain(service: NSBundle.mainBundle().bundleIdentifier ?? "com.loginkit.keychain")
+    let keychain = Keychain(service: Bundle.main.bundleIdentifier ?? "com.loginkit.keychain")
 
     var authToken: String? {
         didSet {
             if LoginService.storePassword {
                 // Store to keychain
-                if LoginKitConfig.authType == AuthType.JWT {
+                if LoginKitConfig.authType == AuthType.jwt {
                     
                     if authToken != nil {
                         do {
@@ -66,8 +66,8 @@ public class User: NSObject, NSCoding {
     }
 
     public required init(coder aDecoder: NSCoder) {
-        if let username = aDecoder.decodeObjectForKey("username") as? String,
-            let id = aDecoder.decodeObjectForKey("id") as? String {
+        if let username = aDecoder.decodeObject(forKey: "username") as? String,
+            let id = aDecoder.decodeObject(forKey: "id") as? String {
                 self.id = id
                 self.username = username
         } else {
@@ -94,11 +94,11 @@ public class User: NSObject, NSCoding {
         }
     }
 
-    public func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(self.id, forKey: "id")
-        aCoder.encodeObject(self.username, forKey: "username")
+    open func encode(with aCoder: NSCoder) {
+        aCoder.encode(self.id, forKey: "id")
+        aCoder.encode(self.username, forKey: "username")
         if let authToken = self.authToken {
-            aCoder.encodeObject(authToken, forKey: "authToken")
+            aCoder.encode(authToken, forKey: "authToken")
         }
     }
 

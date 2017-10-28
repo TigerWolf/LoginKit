@@ -84,18 +84,14 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "$BUILT_PRODUCTS_DIR/Alamofire-iOS8.3/Alamofire.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/IQKeyboardManagerSwift-iOS8.3/IQKeyboardManagerSwift.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/KeychainAccess-iOS8.3/KeychainAccess.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/LoginKit-iOS8.3/LoginKit.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/SVProgressHUD-iOS8.3/SVProgressHUD.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/SwiftyJSON-iOS8.3/SwiftyJSON.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Alamofire/Alamofire.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/KeychainAccess/KeychainAccess.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/LoginKit/LoginKit.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/SVProgressHUD/SVProgressHUD.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "$BUILT_PRODUCTS_DIR/Alamofire-iOS8.3/Alamofire.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/IQKeyboardManagerSwift-iOS8.3/IQKeyboardManagerSwift.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/KeychainAccess-iOS8.3/KeychainAccess.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/LoginKit-iOS8.3/LoginKit.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/SVProgressHUD-iOS8.3/SVProgressHUD.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/SwiftyJSON-iOS8.3/SwiftyJSON.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Alamofire/Alamofire.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/KeychainAccess/KeychainAccess.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/LoginKit/LoginKit.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/SVProgressHUD/SVProgressHUD.framework"
 fi

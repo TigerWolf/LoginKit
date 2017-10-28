@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "LoginKit"
-  s.version          = "0.0.5"
+  s.version          = "0.1.1"
   s.summary          = "LoginKit is a framework to help with creating a login screen."
 
 # This description is used to generate tags and improve search results.
@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
   s.source           = { :git => "https://github.com/TigerWolf/LoginKit.git", :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.platform     = :ios, '8.0'
+  s.platform     = :ios, '9.0'
   s.requires_arc = true
 
   # s.source_files = 'Pod/Classes/**/*'
@@ -41,7 +41,7 @@ Pod::Spec.new do |s|
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   s.frameworks = 'UIKit'
-  s.dependency 'Alamofire', '~> 3.0'
+  s.dependency 'Alamofire', '~> 4.0'
   s.dependency 'SVProgressHUD'
   s.dependency 'KeychainAccess'
 end

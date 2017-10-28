@@ -1,8 +1,8 @@
-platform :ios, '8.0'
+platform :ios, '9.0'
 use_frameworks!
 
 target 'LoginKit' do
-  pod 'Alamofire', '~> 3.0'
+  pod 'Alamofire', '~> 4.0'
   pod 'SVProgressHUD'
   pod 'KeychainAccess'
   pod 'IQKeyboardManagerSwift'

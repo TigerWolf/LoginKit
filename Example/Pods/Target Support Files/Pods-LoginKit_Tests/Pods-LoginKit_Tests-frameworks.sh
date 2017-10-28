@@ -84,22 +84,18 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "$BUILT_PRODUCTS_DIR/Alamofire-iOS9.2/Alamofire.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/IQKeyboardManagerSwift-iOS9.2/IQKeyboardManagerSwift.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/KeychainAccess-iOS9.2/KeychainAccess.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/LoginKit-iOS9.2/LoginKit.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/SVProgressHUD-iOS9.2/SVProgressHUD.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/SwiftyJSON-iOS9.2/SwiftyJSON.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Alamofire/Alamofire.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/KeychainAccess/KeychainAccess.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/LoginKit/LoginKit.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/SVProgressHUD/SVProgressHUD.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Nimble/Nimble.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Quick/Quick.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "$BUILT_PRODUCTS_DIR/Alamofire-iOS9.2/Alamofire.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/IQKeyboardManagerSwift-iOS9.2/IQKeyboardManagerSwift.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/KeychainAccess-iOS9.2/KeychainAccess.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/LoginKit-iOS9.2/LoginKit.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/SVProgressHUD-iOS9.2/SVProgressHUD.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/SwiftyJSON-iOS9.2/SwiftyJSON.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Alamofire/Alamofire.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/KeychainAccess/KeychainAccess.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/LoginKit/LoginKit.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/SVProgressHUD/SVProgressHUD.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Nimble/Nimble.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Quick/Quick.framework"
 fi
