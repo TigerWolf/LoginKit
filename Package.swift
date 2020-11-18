@@ -15,7 +15,7 @@ let package = Package(
         // Dependencies declare other packages that this package depends on.
         .package(
             url: "https://github.com/Alamofire/Alamofire.git",
-            .branch("master")
+            .exact("4.9.1")
         ),
         .package(
             url: "https://github.com/kishikawakatsumi/KeychainAccess.git",
