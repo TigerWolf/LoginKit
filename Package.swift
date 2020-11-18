@@ -20,18 +20,22 @@ let package = Package(
         .package(
             url: "https://github.com/kishikawakatsumi/KeychainAccess.git",
             .branch("master")
-        )
+        ),
+        .package(
+            url: "https://github.com/sereivoanyong/SVProgressHUD.git",
+            .branch("master")
+        ),
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
         // Targets can depend on other targets in this package, and on products in packages which this package depends on.
         .target(
             name: "LoginKit",
-            dependencies: ["Alamofire", "KeychainAccess"],
+            dependencies: ["Alamofire", "KeychainAccess", "SVProgressHUD"],
             path: "LoginKit"),
         .testTarget(
             name: "LoginKitTests",
-            dependencies: ["LoginKit","Alamofire", "KeychainAccess"],
+            dependencies: ["LoginKit","Alamofire", "KeychainAccess", "SVProgressHUD"],
             path: "LoginKitTests"),
     ]
 )
