@@ -9,8 +9,8 @@
 
 ## Installation
 
-LoginKit is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+LoginKit is available through [CocoaPods](http://cocoapods.org) and [Swift Package Manager](https://swift.org/package-manager/). To install
+it via CocoaPods, simply add the following line to your Podfile:
 
 ```ruby
 pod "LoginKit"
@@ -29,6 +29,8 @@ Second, install `LoginKit` into your project:
 ```ruby
 pod install
 ```
+
+To install via Swift Package Manager, use `https://github.com/TigerWolf/LoginKit.git` as the URL and use the `.branch("master")` tag.
 
 ### Manually
 
@@ -66,7 +68,7 @@ LoginKitConfig.logoImage = UIImage(named: "logo") ?? UIImage()
 
 If you would like better control over tabbing between fields in your app, I would recommend `IQKeyboardManagerSwift`. This is a drop in library to add some useful features.
 
-## Autentication
+## Authentication
 
 `LoginKit` assumes that every web request within the app will check for authentication (in the case of an expired token or changed password). In order to make this easy, `LoginKit` provides some utility classes for making requests to APIs which includes authentication sent with all requests as well as checks for expired tokens.
 
@@ -90,6 +92,8 @@ LoginService.request(.GET, "api/v1/beers", parameters: nil).validate()
 Minimum iOS Target: iOS 8.0
 
 Minimum Xcode Version: Xcode 7.2
+
+Note that for SPM support, you will need to use Swift 4 to correctly build the package.
 
 ## Contributing to this project
 
